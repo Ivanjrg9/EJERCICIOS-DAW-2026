@@ -16,5 +16,18 @@ public class Actividad {
 
         System.out.println("Bienenido al curso!");
 
+        System.out.println("introduce un numero...");
+        int num1 = teclado.nextInt();
+
+        System.out.println("introduce un segundo numero...");
+        int num2 = teclado.nextInt();
+
+        System.out.println("El resultado es..."+ num1 + num2);
+
+
+
+        int resultado = num1+num2;
+        System.out.println("El resultado es..." + resultado);
+
     }
 }
