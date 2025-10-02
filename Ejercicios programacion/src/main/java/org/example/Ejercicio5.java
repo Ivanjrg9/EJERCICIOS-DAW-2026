@@ -22,6 +22,8 @@ public class Ejercicio5 {
             }catch (Exception error){
                 System.out.println( " ERROR: no se puede dividir entre 0 ");
 
+                
+
 
 
 
