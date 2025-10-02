@@ -3,16 +3,39 @@ package org.example;
 import java.util.Scanner;
 
 public class Ejercicio5 {
-        static void main(){
+    static void main(String[] args){
             Scanner teclado = new Scanner(System.in);
-            int numero =0;
+            System.out.println( " introduce el dividendo ");
+
+            double num1 = teclado.nextDouble();
+
+            System.out.println( " introduce el divisor ");
+
+            double num2 = teclado.nextDouble();
+
+
             try {
-                numero = teclado.nextInt();
-            }catch (Exception err){
-                System.out.println(" Introduce un formato correcto ");
+                double resultado = num1 / num2;
+
+                System.out.println(" El resultado es " + resultado);
+
+            }catch (Exception error){
+                System.out.println( " ERROR: no se puede dividir entre 0 ");
+
+
+
+
+
+
+
+
+
+
             }
 
-        }
+
+
+    }
 }
 
 
