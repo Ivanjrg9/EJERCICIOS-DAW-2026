@@ -15,22 +15,47 @@ public class Labasculaferiente {
         System.out.println("Introduce tu altura en centímetros porfavor ");
 
         int altura = teclado.nextInt();
-        System.out.println( "LEYENDO ALTURA (CM)... ");
+        System.out.println("LEYENDO ALTURA (CM)... ");
         System.out.println(" MIDES: " + altura + "cm");
 
-        try {
-        int (altura <0 || altura > altura_maxima)
-        System.out.println( " ERROR DE LECTURA: VUELVE A SUBIRTE A LA BASCULA ");
-        }catch (Exception error){
-
-    if (altura > altura_minima)
-            System.out.println(" ADELANTE!! TODO UN GRANDULLÓN ");
+        if (altura < 0 || altura > altura_maxima) {
+            System.out.println(" ERROR DE LECTURA: VUELVE A SUBIRTE A LA BASCULA ");
+        }else{
 
 
-        else if (altura < altura_minima){
-            System.out.println( " LO SENTIMOS MUCHO... PERO TE FALTAN " + (altura_minima - altura)+ " CM PARA PODER SUBIR :( ");
+            if (altura < altura_minima){
+                System.out.println( " LO SENTIMOS MUCHO... PERO TE FALTAN " + (altura_minima - altura)+ " CM PARA PODER SUBIR :( ");
+
+            }else{
+                System.out.println( " CUANTO PESAS (KG) ?");
+
+                double peso = teclado.nextDouble();
+                double peso_minimo = (altura *2) / 8;
+
+                if (peso < peso_minimo || peso > peso_maximo){
+                    System.out.println( " LO SIENTO... PESAS " + (peso - peso_maximo) + " (KG) MÁS DEL LIMITE DE LA ATRACCION " );
+                }else{
+                    System.out.println(" TU PESO ES: " + peso + " KG ");
+                    System.out.println(" ADELANTE GRANDULLÓN!!");
+
+                }
+
+
+
+
+
+
+
+
+
+            }
+
+
+
 
         }
+
+
 
 
 
