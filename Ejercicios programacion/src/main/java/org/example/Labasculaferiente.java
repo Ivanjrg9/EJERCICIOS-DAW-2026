@@ -18,17 +18,32 @@ public class Labasculaferiente {
         System.out.println( "LEYENDO ALTURA (CM)... ");
         System.out.println(" MIDES: " + altura + "cm");
 
-        if (altura <0 || altura > altura_maxima)
+        try {
+        int (altura <0 || altura > altura_maxima)
         System.out.println( " ERROR DE LECTURA: VUELVE A SUBIRTE A LA BASCULA ");
+        }catch (Exception error){
 
-        else
-
-        if (altura > altura_minima)
+    if (altura > altura_minima)
             System.out.println(" ADELANTE!! TODO UN GRANDULLÓN ");
 
-        else if (altura < altura_minima) {
+
+        else if (altura < altura_minima){
             System.out.println( " LO SENTIMOS MUCHO... PERO TE FALTAN " + (altura_minima - altura)+ " CM PARA PODER SUBIR :( ");
+
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
