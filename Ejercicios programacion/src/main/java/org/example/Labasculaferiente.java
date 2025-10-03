@@ -47,21 +47,24 @@ public class Labasculaferiente {
 
                }catch (Exception error){
                    System.out.println( " EL FORMATO INTRODUCIDONO ES CORRECTO ");
-                   repetir_p = 
+                   repetir_p = true;
+               }
+
+           }while (repetir_p == true);
+
+           if (peso > peso_maximo){
+               System.out.println( " LO SIENTO EXCEDES EL PESO PERMITIDO POR " + (peso - peso_maximo) + " KG ");
+           }else{
+
+               if (peso < altura *2 /8){
+                   System.out.println(" LO SIENTO PESAS DEMASIADO POCO PARA TU ALTURA");
+               }else{
 
                }
-           }
+                   System.out.println( " ENHORABUENA, PUEDES SUBIR!! ADELANTE!!");
            }
        }
 
-        double peso = teclado.nextDouble();
-        double peso_minimo = (altura *2) / 8;
-
-        if (peso < peso_minimo || peso > peso_maximo){
-            System.out.println( " LO SIENTO... PESAS " + (peso - peso_maximo) + " (KG) MÁS DEL LIMITE DE LA ATRACCION " );
-        }else{
-            System.out.println(" TU PESO ES: " + peso + " KG ");
-            System.out.println(" ADELANTE GRANDULLÓN!!");
 
 
 
