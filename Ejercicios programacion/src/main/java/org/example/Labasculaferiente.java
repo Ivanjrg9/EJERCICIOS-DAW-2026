@@ -32,6 +32,7 @@ public class Labasculaferiente {
                System.out.println( " ERROR: EL FORMATO INTRODUCIDO NO ES EL CORRECTO... ");
                repetir_a = true;
            }
+
                 //SE REPETIRA EN CASO DE QUE EL BOOLEANO SEA TRUE
        }while (repetir_a == true);
                     //SI ESTO NO SE CUMPLE EL PROGRAMA IMPRIMIRA LO SIGUIENTE Y HARA EL CALCULO DE CUANTO LE FALTA PARA LLEGAR
