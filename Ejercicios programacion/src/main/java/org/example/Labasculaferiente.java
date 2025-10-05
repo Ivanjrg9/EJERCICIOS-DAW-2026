@@ -19,15 +19,15 @@ public class Labasculaferiente {
 
        do {
            try {
-
-               System.out.println("Introduce tu altura en centímetros porfavor ");
+                                                //Pedimos la altura
+               System.out.println(" INTRODUCE TU ALTURA EN CENTIMETROS PORFAVOR ");
                altura = teclado.nextInt();
 
                System.out.println("LEYENDO ALTURA (CM)... ");
                System.out.println(" MIDES: " + altura + "cm");
 
                repetir_a= false;
-
+                            //SI INTRODUCE UN FORMATO ERRONEO EL PROGRAMA DARA ERROR
            }catch (Exception error){
                System.out.println( " ERROR: EL FORMATO INTRODUCIDO NO ES EL CORRECTO... ");
                repetir_a = true;
@@ -35,10 +35,10 @@ public class Labasculaferiente {
 
        }while (repetir_a == true);
 
-       if (altura > altura_maxima) {
+       if (altura > altura_maxima || altura < altura_minima){
            System.out.println(" LO SIENTO, NO LLEGAS A LA ALTURA PERMITIDA POR " + (altura - altura_maxima) + " CM ");
-
        }else{
+
            do {
                try {
                    System.out.println( " INTRODUCE TU PESO EN (KG) ");
@@ -46,7 +46,7 @@ public class Labasculaferiente {
                    repetir_p = false;
 
                }catch (Exception error){
-                   System.out.println( " EL FORMATO INTRODUCIDONO ES CORRECTO ");
+                   System.out.println( " EL FORMATO INTRODUCIDO NO ES CORRECTO ");
                    repetir_p = true;
                }
 
@@ -54,11 +54,11 @@ public class Labasculaferiente {
 
            if (peso > peso_maximo){
                System.out.println( " LO SIENTO EXCEDES EL PESO PERMITIDO POR " + (peso - peso_maximo) + " KG ");
-           }else{
+           }else {
 
-               if (peso < altura *2 /8){
+               if (peso < altura * 2 / 8) {
                    System.out.println(" LO SIENTO PESAS DEMASIADO POCO PARA TU ALTURA");
-               }else{
+               } else {
 
                }
                    System.out.println( " ENHORABUENA, PUEDES SUBIR!! ADELANTE!!");
@@ -102,13 +102,8 @@ public class Labasculaferiente {
 
 
 
+           }
 
 
 
-
-
-
-
-
-        }
 }
