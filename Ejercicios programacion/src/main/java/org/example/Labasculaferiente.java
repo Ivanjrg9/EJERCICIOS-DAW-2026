@@ -60,50 +60,9 @@ public class Labasculaferiente {
                    System.out.println(" LO SIENTO PESAS DEMASIADO POCO PARA TU ALTURA");
                } else {
 
-               }            //SI TODO LO ANTERIOR ESTA CORRECTO EL PROGRAMA TE DEJARA CONTINUAR ADELANTE 
+               }            //SI TODO LO ANTERIOR ESTA CORRECTO EL PROGRAMA TE DEJARA CONTINUAR ADELANTE
                    System.out.println( " ENHORABUENA, PUEDES SUBIR!! ADELANTE!!");
            }
        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-           }
-
-
-
+    }
 }
