@@ -37,17 +37,17 @@ public class Multiplicandos {
         String multiplicadoring = Integer.toString(multiplicador);
 
         // Sacar las cifras del multiplicador
-        int cifra1 = Integer.parseInt(multiplicadoring.substring(0,1));
+        int cifra1 = Integer.parseInt(multiplicadoring.substring(2,3));
         int cifra2 = Integer.parseInt(multiplicadoring.substring(1,2));
-        int cifra3 = Integer.parseInt(multiplicadoring.substring(2,3));
+        int cifra3 = Integer.parseInt(multiplicadoring.substring(0,1));
 
         // Productos parciales
-        int parcial1 = multiplicando * cifra1;
-        int parcial2 = multiplicando * cifra2;
-        int parcial3 = multiplicando * cifra3;
+        int parcial1 = multiplicando * cifra1; // Unidades
+        int parcial2 = multiplicando * cifra2; // Decenas
+        int parcial3 = multiplicando * cifra3; // Centenas
 
         // Total
-        int total = multiplicando * multiplicador;
+        int total = multiplicando * multiplicador; // El Total final
 
         // Mostrar los resultados
 
@@ -55,11 +55,11 @@ public class Multiplicandos {
         System.out.println("  " + multiplicando);
         System.out.println(" x " + multiplicador);
         System.out.println("_______");
-        System.out.println("   " + parcial1);
-        System.out.println("  " + parcial2);
-        System.out.println(" " + parcial3);
+        System.out.println("   " + parcial1); // Unidades
+        System.out.println("  " + parcial2); // Decenas
+        System.out.println(" " + parcial3); // Centenas
         System.out.println("______");
-        System.out.println(" " + total);
+        System.out.println(" " + total); // El Total final
 
 
 
