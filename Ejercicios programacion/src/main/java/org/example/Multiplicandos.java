@@ -50,7 +50,6 @@ public class Multiplicandos {
         int total = multiplicando * multiplicador; // El Total final
 
         // Mostrar los resultados
-
         System.out.println();
         System.out.println("  " + multiplicando);
         System.out.println(" x " + multiplicador);
