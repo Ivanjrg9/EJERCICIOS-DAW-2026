@@ -31,36 +31,30 @@ public class programageneraciones {
             System.out.println("Introduce un valor válido...");
             return;
         }
+        switch (modo){
+            case 1:
+                System.out.println("Introduce tu año de nacimiento...");
+                String anyo_nacimiento = teclado.next();
 
-        if (modo==1){
-            System.out.println("Introduce tu año de nacimiento...");
-            String anyo_nacimiento = teclado.next();
-
-            try{
-                anyo_nacimiento_int = Integer.parseInt(anyo_nacimiento);
-            }catch (Exception e){
-                System.out.println("El formato introducido para el año no es correcto.");
-                return;
-            }
-
-        } else if (modo==2) {
-
-            int edad = 0;
-            System.out.println("Introduce tu edad...");
-            if (teclado.hasNextInt()){
-                edad = teclado.nextInt();
-            }else{
-                System.out.println("Formato incorrecto. No es numérico.");
-                return;
-            }
-
-            if (edad>=0){
-                anyo_nacimiento_int = anyo_actual - edad;
-            }
-
-        }else{
-            System.out.println("El modo no existe!");
-            return;
+                try{
+                    anyo_nacimiento_int = Integer.parseInt(anyo_nacimiento);
+                }catch (Exception e){
+                    System.out.println("El formato introducido para el año no es correcto.");
+                    return;
+                }
+                break;
+            case 2:
+                int edad = 0;
+                System.out.println("Introduce tu edad...");
+                if (teclado.hasNextInt()){
+                    edad = teclado.nextInt();
+                }else{
+                    System.out.println("Formato incorrecto. No es numérico.");
+                    return;
+                }
+                break;
+            default:
+                System.out.println("El modo no existe");
         }
 
         if (anyo_nacimiento_int >= ANYO_MINIMO && anyo_nacimiento_int <= anyo_actual){
