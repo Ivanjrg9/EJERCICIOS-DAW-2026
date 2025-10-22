@@ -7,7 +7,7 @@ public class PracticaCalculadora {
         Scanner teclado = new Scanner(System.in);
         double num = 0;
         double num2 = 0;
-        
+
 
         System.out.println("---BIENVENID@---");
         System.out.println(" Introduce un número ");
@@ -23,29 +23,30 @@ public class PracticaCalculadora {
 
         String operacion = teclado.next();
         String formato_mayus = operacion.toUpperCase();
-        if ( formato_mayus == "R" ){
-            System.out.println( " Has elegido la Raíz cuadrada ");
-            if ( num < 0 ){
-                System.out.println( " ERROR: No se puede ejecutar la raíz cuadrada de numeros negativos ");
 
-            }else {
-                double resultado_raiz = Math.sqrt(num);
-                System.out.println(" El resultado de la Raíz cuadrada de " + num + " es: " + resultado_raiz);
-
-            }
-
-        }else {
-            System.out.println(" Introduce otro número ");
-            if (teclado.hasNextDouble()){
-                num2 = teclado.nextDouble();
-            }else {
-                System.out.println(" Formato incorrecto para el segundo número... ");
-                return;
-            }
-
-        }
 
         if (formato_mayus.length()== 1){
+            if ( formato_mayus.equals("R")){
+                System.out.println( " Has elegido la Raíz cuadrada ");
+                if ( num < 0 ){
+                    System.out.println( " ERROR: No se puede ejecutar la raíz cuadrada de numeros negativos ");
+
+                }else {
+                    double resultado_raiz = Math.sqrt(num);
+                    System.out.println(" El resultado de la Raíz cuadrada de " + num + " es: " + resultado_raiz);
+
+                }
+
+            }else {
+                System.out.println(" Introduce otro número ");
+                if (teclado.hasNextDouble()){
+                    num2 = teclado.nextDouble();
+                }else {
+                    System.out.println(" Formato incorrecto para el segundo número... ");
+                    return;
+                }
+
+            }
 
         }else {
             System.out.println(" ERROR: Introduce solo un operando porfavor... ");
