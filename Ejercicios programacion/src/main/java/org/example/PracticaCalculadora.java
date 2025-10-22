@@ -87,6 +87,10 @@ public class PracticaCalculadora {
                 System.out.println(" El resultado de " + num + " * " + num2 + " es: " + resultado_multiplicacion);
                 break;
 
+            case "R":
+
+                break;
+
             default:
                 System.out.println(" Elige una opcion correcta porfavor... ");
 
