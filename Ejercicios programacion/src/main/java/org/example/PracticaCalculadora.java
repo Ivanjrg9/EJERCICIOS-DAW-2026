@@ -7,6 +7,7 @@ public class PracticaCalculadora {
         Scanner teclado = new Scanner(System.in);
         double num = 0;
         double num2 = 0;
+        double resultado_raiz;
 
 
         System.out.println("---BIENVENID@---");
@@ -27,13 +28,10 @@ public class PracticaCalculadora {
 
         if (formato_mayus.length()== 1){
             if ( formato_mayus.equals("R")){
-                System.out.println( " Has elegido la Raíz cuadrada ");
                 if ( num < 0 ){
                     System.out.println( " ERROR: No se puede ejecutar la raíz cuadrada de numeros negativos ");
 
                 }else {
-                    double resultado_raiz = Math.sqrt(num);
-                    System.out.println(" El resultado de la Raíz cuadrada de " + num + " es: " + resultado_raiz);
 
                 }
 
@@ -88,6 +86,9 @@ public class PracticaCalculadora {
                 break;
 
             case "R":
+                System.out.println( " Has elegido la Raíz cuadrada ");
+                resultado_raiz = Math.sqrt(num);
+                System.out.println(" El resultado de la Raíz cuadrada de " + num + " es: " + resultado_raiz);
 
                 break;
 
