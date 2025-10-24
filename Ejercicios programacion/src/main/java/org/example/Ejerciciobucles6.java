@@ -5,14 +5,19 @@ import java.util.Scanner;
 public class Ejerciciobucles6 {
     static void main() {
         Scanner teclado = new Scanner(System.in);
+        int N = 5;
+        int factorial =1;
 
-        System.out.println("Cuantos numeros quieres sumar?");
-        int veces = teclado.nextInt();
+        for (int i = N; i > 0 ; i--) {
+            factorial *=i;
+            System.out.println(factorial);
+        }
 
-        for (int i = 0; i <= veces; i++) {
-            System.out.println("Inserta numero:");
-            int num = teclado.nextInt();
-            System.out.println(num + veces);
+
+
+
+
+
             
         }
         
@@ -22,4 +27,4 @@ public class Ejerciciobucles6 {
 
 
     }
-}
+
