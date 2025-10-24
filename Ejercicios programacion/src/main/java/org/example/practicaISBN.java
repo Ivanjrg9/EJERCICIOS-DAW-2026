@@ -19,6 +19,11 @@ public class practicaISBN {
 
         String opcion = teclado.nextLine();
         String opcion_mayus = opcion.toUpperCase();
+        if (opcion_mayus.length() >1){
+            System.out.println("INTRODUCE UNA UNICA OPCION PORFAVOR");
+        }else {
+
+        }
 
         switch (opcion_mayus){
             case "1":
@@ -26,8 +31,12 @@ public class practicaISBN {
                 String isbn = teclado.nextLine();
                 if (isbn.length()==10){
 
+                    System.out.println("EL ISBN " + isbn + " ES CORRECTO");
+
+
                 }else {
-                    System.out.println("ERROR: ISBN INCORRECTO...");
+                    System.out.println("ERROR: EL ISBN " + isbn + " ES INCORRECTO...");
+
                 }
 
 
@@ -45,6 +54,10 @@ public class practicaISBN {
                 System.out.println("SALIENDO...");
 
                 break;
+
+
+            default:
+                System.out.println(" INTRODUCE UNA OPCIÓN CORRECTA PORFAVOR...");
 
         }
 
