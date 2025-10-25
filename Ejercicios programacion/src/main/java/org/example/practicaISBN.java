@@ -6,7 +6,8 @@ public class practicaISBN {
     static void main() {
         Scanner teclado =new Scanner(System.in);
 
-        int X = 10;
+        int suma = 0;
+        int resta = 0;
 
         System.out.println("***VALIDADOR DE ISBN***");
         System.out.println("-----------------------------");
@@ -18,6 +19,7 @@ public class practicaISBN {
         System.out.println("-----------------------------");
 
         String opcion = teclado.nextLine();
+        String opcion_mayus = opcion.toUpperCase();
 
         if (opcion.length() >1){
             System.out.println("INTRODUCE UNA UNICA OPCIÓN PORFAVOR");
@@ -25,24 +27,44 @@ public class practicaISBN {
 
         }
 
-        switch (opcion){
+        switch (opcion_mayus){
             case "1":
                 System.out.println("INTRODUZCA ISBN");
                 String isbn = teclado.nextLine();
+                String isbn_mayus = isbn.toUpperCase();
 
-                if (isbn.length()==10){
-                    for (int i = 0; i < 10; i++) {
+                if (isbn_mayus.length()==10){
+
+                    for (int i= 0; i < 10; i++) {
+                        char x = isbn.charAt(i);
+
+                        String numerostring = isbn.substring(i,i + 1);
+                        int numero = Integer.parseInt(numerostring);
+                        int resultado = numero * (10 - i);
+                        int valorx;
 
 
+                        if ( i == 'x'){
+                            valorx = 10;
 
+                        }else {
 
+                        }
 
-
-
+                        System.out.println(numero + "x" + (i + 1) + "="  + resultado);
+                        suma = suma + resultado;
 
                     }
 
-                    System.out.println("EL ISBN " + isbn + " ES CORRECTO");
+                    System.out.println(" La suma total es: " + suma);
+
+                    if (suma % 11 == 0){
+                        System.out.println("EL ISBN " + isbn + " ES CORRECTO");
+
+                    }else {
+                        System.out.println("EL ISBN " + isbn + " ES INCORRECTO");
+
+                    }
 
 
                 }else {
