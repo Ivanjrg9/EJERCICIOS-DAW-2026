@@ -7,9 +7,7 @@ public class practicaISBN {
         Scanner teclado =new Scanner(System.in);
 
 
-        int resta = 0;
-
-        System.out.println("***VALIDADOR DE ISBN***");
+        System.out.println("***VALIDADOR DE ISBN***"); //INTRODUCIMOS EL PROGRAMA
         System.out.println("-----------------------------");
         System.out.println("ELIGE UNA OPCIÓN");
         System.out.println("-----------------------------");
@@ -19,7 +17,7 @@ public class practicaISBN {
         System.out.println("-----------------------------");
 
         String opcion = teclado.nextLine();
-        String opcion_mayus = opcion.toUpperCase();
+        String opcion_mayus = opcion.toUpperCase();//PASAMOS LA ELECCION A MAYUSCULA
 
 
         switch (opcion_mayus){
@@ -28,33 +26,34 @@ public class practicaISBN {
                 String isbn = teclado.nextLine();
                 String isbn_mayus = isbn.toUpperCase();
 
-                if (isbn_mayus.length()==10){
+                if (isbn_mayus.length()==10){//Si el isbn introducido mno tiene exactamente 10 caracteres dara error
                     int suma = 0;
                     boolean xnovalid = false;
 
-                    for (int i= 0; i < 10; i++) {
+                    for (int i= 0; i < 10; i++) {//Comenzamos el bucle dandole 10 vueltas, una por cada numero
                         String letrax = isbn_mayus.substring(i,i + 1);
                         int numero;
 
-                        if (letrax.equals("X") && i != 9){
-                            xnovalid = true;
+                        if (letrax.equals("X") && i != 9){// Si la letra actual es "X" y no está en la última posición (posición 9)
+                            xnovalid = true;// Marca que hay un error porque la X solo puede ir al final
 
                         }
 
-                        if (letrax.equals("x") || letrax.equals("X")){
-                            numero = 10;
+                        if (letrax.equals("x") || letrax.equals("X")){// Si la letra es "x" o "X"
+                            numero = 10;// La X vale 10
+
                         }else {
-                            numero = Integer.parseInt(letrax);
+                            numero = Integer.parseInt(letrax);// Si no, convierte la letra en número
                         }
 
-                        int resultado = numero * (i + 1);
-                        suma = suma + resultado;
+                        int resultado = numero * (i + 1);// Multiplica el número por su posición (i + 1)
+                        suma = suma + resultado;// Suma el resultado total
 
                         System.out.println(numero + "x" + (i + 1) + "=" + resultado);
 
                     }
 
-                    if (xnovalid){
+                    if (xnovalid){// Si la X no estaba al final
                         System.out.println(" ERROR: LA LETRA (X) SOLO PUEDE IR EN LA ULTIMA POSICIÓN ");
 
                     }else {
@@ -62,7 +61,7 @@ public class practicaISBN {
 
                     }
 
-                    if (suma % 11 == 0){
+                    if (suma % 11 == 0){// Comprueba si el ISBN es correcto
                         System.out.println("EL ISBN " + isbn + " ES CORRECTO");
 
                     }else {
@@ -80,12 +79,12 @@ public class practicaISBN {
             case "2":
                 System.out.println("INTRODUCE EL ISBN QUE DESEAS REPARAR PORFAVOR...");
                 System.out.println("EL DIGITO FALTANTE MÁRCALO CON '?'");
-                String isbnrepar = teclado.nextLine();
+                String isbnrepar = teclado.nextLine();// Pide el ISBN con un '?'
 
-                if (isbnrepar.length()== 10 && isbnrepar.contains("?")){
+                if (isbnrepar.length()== 10 && isbnrepar.contains("?")){// Comprueba que tenga 10 caracteres y contenga '?'
                     int suma = 0;
-                    int faltante = isbnrepar.indexOf("?");
-                    int numfaltante = -1;
+                    int faltante = isbnrepar.indexOf("?");// Guarda la posición del '?'
+                    int numfaltante = -1;// Inicializa el número faltante
 
 
                     for (int i = 0; i < 10 ; i++) {
@@ -93,12 +92,12 @@ public class practicaISBN {
                         int numero;
 
                         if (letra.equals("?")){
-                            numero = 0;
+                            numero = 0;// El signo de pregunta vale 0 temporalmente
                         } else if (letra.equals("X")) {
-                            numero = 10;
+                            numero = 10;// La X vale 10
 
                         }else {
-                            numero = Integer.parseInt(letra);
+                            numero = Integer.parseInt(letra);// Convierte a número
 
                         }
 
@@ -106,16 +105,16 @@ public class practicaISBN {
 
                     }
 
-                    for (int j = 0; j < 10; j++) {
+                    for (int j = 0; j < 10; j++) { // Prueba los valores del 0 al 10 para encontrar el correcto
                         int total = suma + j * (faltante + 1);
 
                         if ( total % 11 == 0){
-                            numfaltante = j;
+                            numfaltante = j;// Si el ISBN es válido, guarda el número
 
                         }
                     }
 
-                    if (numfaltante == 10){
+                    if (numfaltante == 10){  // Si el número faltante es 10, se representa como X
                         System.out.println(" EL HUECO FALTANTE ES IGUAL A: X");
                         System.out.println(" ISBN COMPLETO" + isbnrepar.substring(0,faltante) + "X" + isbnrepar.substring(faltante + 1));
                     } else if (numfaltante >= 0) {
@@ -134,23 +133,15 @@ public class practicaISBN {
                 break;
 
             case "3":
-                System.out.println("SALIENDO...");
+                System.out.println("SALIENDO...");// Sale del programa
 
                 break;
 
 
             default:
-                System.out.println(" INTRODUCE UNA OPCIÓN CORRECTA PORFAVOR...");
+                System.out.println(" INTRODUCE UNA OPCIÓN CORRECTA PORFAVOR..."); // Opción inválida
 
         }
-
-
-
-
-
-
-
-
 
     }
 }
