@@ -38,7 +38,7 @@ public class practicaISBN {
 
                         if (letrax.equals("X") && i != 9){
                             xnovalid = true;
-                            break;
+
                         }
 
                         if (letrax.equals("x") || letrax.equals("X")){
@@ -56,6 +56,7 @@ public class practicaISBN {
 
                     if (xnovalid){
                         System.out.println(" ERROR: LA LETRA (X) SOLO PUEDE IR EN LA ULTIMA POSICIÓN ");
+
                     }else {
                         System.out.println(" La suma total es: " + suma);
 
@@ -107,9 +108,9 @@ public class practicaISBN {
 
                     for (int j = 0; j < 10; j++) {
                         int total = suma + j * (faltante + 1);
+
                         if ( total % 11 == 0){
                             numfaltante = j;
-                            break;
 
                         }
                     }
