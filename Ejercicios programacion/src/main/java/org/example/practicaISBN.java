@@ -21,11 +21,6 @@ public class practicaISBN {
         String opcion = teclado.nextLine();
         String opcion_mayus = opcion.toUpperCase();
 
-        if (opcion.length() >1){
-            System.out.println("INTRODUCE UNA UNICA OPCIÓN PORFAVOR");
-        }else {
-
-        }
 
         switch (opcion_mayus){
             case "1":
@@ -83,6 +78,7 @@ public class practicaISBN {
 
             case "2":
                 System.out.println("INTRODUCE EL ISBN QUE DESEAS REPARAR PORFAVOR...");
+                System.out.println("EL DIGITO FALTANTE MÁRCALO CON '?'");
                 String isbnrepar = teclado.nextLine();
 
                 if (isbnrepar.length()== 10 && isbnrepar.contains("?")){
@@ -104,24 +100,32 @@ public class practicaISBN {
                             numero = Integer.parseInt(letra);
 
                         }
-                        suma = suma + numfaltante * (i + 1);
+
+                        suma = suma + numero * (i + 1);
 
                     }
 
                     for (int j = 0; j < 10; j++) {
-                        int total = suma + j * ( numfaltante + 1);
+                        int total = suma + j * (faltante + 1);
                         if ( total % 11 == 0){
                             numfaltante = j;
+                            break;
 
                         }
                     }
 
                     if (numfaltante == 10){
                         System.out.println(" EL HUECO FALTANTE ES IGUAL A: X");
-                        System.out.println(" ISBN COMPLETO" + isbnrepar.substring(0,numfaltante) + "X" + isbnrepar.substring(numfaltante + 1));
+                        System.out.println(" ISBN COMPLETO" + isbnrepar.substring(0,faltante) + "X" + isbnrepar.substring(faltante + 1));
+                    } else if (numfaltante >= 0) {
+                        System.out.println("EL DIGITO FALTANTE ES: " + numfaltante);
+                        System.out.println("ISBN REPARADO " + isbnrepar.substring(0,faltante) + numfaltante + isbnrepar.substring(faltante + 1));
+
                     }else {
                         System.out.println(" NO SE HA PODIDO CALCULAR EL DIGITO CORRECTO ");
+
                     }
+
                 }else {
                     System.out.println(" ERROR: EL ISBN DEBE TENER EXACTAMENTE 10 DIGITOS Y UN '?' INDICANDO LA POSICIÓN FALTANTE PARA PODER REPARARLO... ");
                 }
