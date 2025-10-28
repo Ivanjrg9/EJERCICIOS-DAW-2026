@@ -17,7 +17,7 @@ public class practicaISBN {
         System.out.println("-----------------------------");
 
         String opcion = teclado.nextLine();
-        String opcion_mayus = opcion.toUpperCase();//PASAMOS LA ELECCION A MAYUSCULA
+        String opcion_mayus = opcion.toUpperCase();//Pasamos la eleccion a mayuscula
 
 
         switch (opcion_mayus){

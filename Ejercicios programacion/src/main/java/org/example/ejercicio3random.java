@@ -18,6 +18,7 @@ public class ejercicio3random {
         int nummin = teclado.nextInt();
         System.out.println("Cuantos numeros aleatorios quieres??");
         int numerosaleatorios = teclado.nextInt();
+
         for (int i = 0; i < numerosaleatorios ; i++) {
             if (nummax>nummin){
                 numero = aleatorio.nextInt(nummax - nummin + 1)+ nummin;
