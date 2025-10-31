@@ -7,8 +7,6 @@ public class practicaISBN {
         Scanner teclado =new Scanner(System.in);
 
 
-        int resta = 0;
-
         System.out.println("***VALIDADOR DE ISBN***");
         System.out.println("-----------------------------");
         System.out.println("ELIGE UNA OPCIÓN");
@@ -41,7 +39,7 @@ public class practicaISBN {
 
                         }
 
-                        if (letrax.equals("x") || letrax.equals("X")){
+                        if (letrax.equals("X")){
                             numero = 10;
                         }else {
                             numero = Integer.parseInt(letrax);
@@ -118,6 +116,7 @@ public class practicaISBN {
                     if (numfaltante == 10){
                         System.out.println(" EL HUECO FALTANTE ES IGUAL A: X");
                         System.out.println(" ISBN COMPLETO" + isbnrepar.substring(0,faltante) + "X" + isbnrepar.substring(faltante + 1));
+
                     } else if (numfaltante >= 0) {
                         System.out.println("EL DIGITO FALTANTE ES: " + numfaltante);
                         System.out.println("ISBN REPARADO " + isbnrepar.substring(0,faltante) + numfaltante + isbnrepar.substring(faltante + 1));
