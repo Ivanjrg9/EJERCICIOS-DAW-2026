@@ -7,11 +7,10 @@ public class practicaISBN {
         Scanner teclado =new Scanner(System.in);
 
 
-<<<<<<< HEAD
+
         System.out.println("***VALIDADOR DE ISBN***");
-=======
         System.out.println("***VALIDADOR DE ISBN***"); //INTRODUCIMOS EL PROGRAMA
->>>>>>> bfb0fb05e92cbd97be59e7bd9fbd9e32f633dcfa
+
         System.out.println("-----------------------------");
         System.out.println("ELIGE UNA OPCIÓN");
         System.out.println("-----------------------------");
@@ -43,14 +42,13 @@ public class practicaISBN {
 
                         }
 
-<<<<<<< HEAD
                         if (letrax.equals("X")){
                             numero = 10;
-=======
+
                         if (letrax.equals("x") || letrax.equals("X")){// Si la letra es "x" o "X"
                             numero = 10;// La X vale 10
 
->>>>>>> bfb0fb05e92cbd97be59e7bd9fbd9e32f633dcfa
+
                         }else {
                             numero = Integer.parseInt(letrax);// Si no, convierte la letra en número
                         }
