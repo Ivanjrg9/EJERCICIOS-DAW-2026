@@ -13,9 +13,9 @@ public class ejercicio6vectores {
             if (vector[i]!=vector[vector.length - 1 - i]){
                 System.out.println("No es");
                 break;
-
             }
         }
+
         System.out.println("Es palindromo");
     }
 }
