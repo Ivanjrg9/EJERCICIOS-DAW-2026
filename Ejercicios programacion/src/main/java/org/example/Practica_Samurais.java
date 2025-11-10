@@ -25,14 +25,6 @@ public class Practica_Samurais {
         for (int i = 1; i < numero_equipos; i++) {
             int equipo[]= new int[numero_samurais];
 
-            System.out.println("TU TURNO " + Arrays.toString(equipo) + "!!");
-
-
-
-
-
-
-
 
             if (i == 1) { // Controla qué equipo es del que estás rellenando los datos
                 equipo = equipo1;
