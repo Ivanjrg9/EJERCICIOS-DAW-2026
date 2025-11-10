@@ -25,6 +25,11 @@ public class Practica_Samurais {
         for (int i = 1; i < numero_equipos; i++) {
             int equipo[]= new int[numero_samurais];
 
+            System.out.println("TU TURNO " + Arrays.toString(equipo) + "!!");
+
+
+
+
 
 
 
@@ -44,71 +49,5 @@ public class Practica_Samurais {
 
 
         }
-
-
-
-
-<<<<<<< HEAD
-=======
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
->>>>>>> b8bf568c6aad9153a9bca8a93c5e4a15b1ebb390
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }
