@@ -10,40 +10,68 @@ public class Practica_Samurais {
         Random aleatorio = new Random();
 
         final int POTENCIA_MAX=30;
-        int suma =0;
+        final int numero_equipos=2;
+        final int numero_samurais=7;
+
+        int equipo1[]= new int[numero_samurais];
+        int equipo2[]= new int[numero_samurais];
 
 
-        System.out.println("BIENVENID@ A LA BATALLA DE SAMURAIS");
         System.out.println("-----------------------------------------");
-        System.out.println("EQUIPO 1");
-        System.out.println("INTRODUCE LA POTENCIA DE TUS 7 SAMURAIS (POTENCIA MÁX 24 Y SEPARADOS POR ESPACIOS...):");
-        String potencia= teclado.nextLine();
-        String vpotencia[] = potencia.split(" ");
+        System.out.println("*** BIENVENID@ A LA BATALLA DE SAMURAIS ***");
+        System.out.println("-----------------------------------------");
 
-        if (vpotencia.length ==7){
-            System.out.println(Arrays.toString(vpotencia));
 
-            for (int i = 0; i < vpotencia.length; i++) {
-                suma += Integer.parseInt(vpotencia[i]);
+        for (int i = 1; i < numero_equipos; i++) {
+            int equipo[]= new int[numero_samurais];
+
+
+
+
+
+            if (i == 1) { // Controla qué equipo es del que estás rellenando los datos
+                equipo = equipo1;
+            } else {
+                equipo = equipo2;
             }
 
-        }else {
-            System.out.println("ERROR: INTRODUCE SOLO 7 SAMURAIS...");
+
+
+
+
+
+
+
+
         }
-        if (suma>POTENCIA_MAX){
-            System.out.println("ERROR: LA SUMA TOTAL NO SUMA 30...");
-
-        }else {
-            System.out.println("Equipo 1 completo!");
-        }
-        System.out.println("----------------------------------");
-
-        System.out.println("EQUIPO 2, TU TURNO...");
-        System.out.println("INTRODUCE LA POTENCIA DE TUS 7 SAMURAIS (POTENCIA MÁX 24 Y SEPARADOS POR ESPACIOS...):");
-        String potencia2 = teclado.nextLine();
-        String vpotencia2[]= potencia2.split(" ");
 
 
+
+
+<<<<<<< HEAD
+=======
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> b8bf568c6aad9153a9bca8a93c5e4a15b1ebb390
 
 
 
