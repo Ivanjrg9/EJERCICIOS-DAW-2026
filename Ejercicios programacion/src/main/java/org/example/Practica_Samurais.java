@@ -43,7 +43,7 @@ public class Practica_Samurais {
         String potencia2 = teclado.nextLine();
         String vpotencia2[]= potencia2.split(" ");
 
-        
+
 
 
 
