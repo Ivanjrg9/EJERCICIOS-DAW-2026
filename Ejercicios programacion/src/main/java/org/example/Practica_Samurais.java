@@ -23,14 +23,40 @@ public class Practica_Samurais {
 
 
         for (int i = 1; i < numero_equipos; i++) {
-            int equipo[]= new int[numero_samurais];
+            int equipo[];
+            int suma = 0;
 
-
-            if (i == 1) { // Controla qué equipo es del que estás rellenando los datos
+            if (i == 1) {
                 equipo = equipo1;
             } else {
                 equipo = equipo2;
             }
+
+            do {
+                System.out.println("EQUIPO " + i);
+                System.out.println(" INTRODUCE TUS 7 SAMURAIS, POTENCIA MÁXIMA DEL EQUIPO:(30). ");
+                String potencia = teclado.nextLine();
+                String potencia_vector[] = potencia.split(" ");
+
+                if (potencia_vector.length == numero_samurais){
+                    for (int j = 0; j < numero_samurais; j++) {
+
+                        try {
+                            int potencia_num = Integer.parseInt(potencia);
+                            
+                        }catch (NumberFormatException error){
+
+                        }
+
+                    }
+                }
+
+                suma = 0;
+
+
+            }while ();
+
+
 
 
 
