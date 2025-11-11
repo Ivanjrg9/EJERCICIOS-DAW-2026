@@ -82,6 +82,15 @@ public class Practica_Samurais {
         int muertos2 = 0;
 
         while (muertos1 < 4 && muertos2 < 4){
+
+            if (equipo1[batalla] == 0 && equipo2[batalla] == 0) {
+                batalla++;
+                if (batalla == 7) {
+                    batalla = 0;
+                }
+                continue;
+            }
+
             int samuraie1 = equipo1[batalla];
             int samuraie2 = equipo2[batalla];
 
