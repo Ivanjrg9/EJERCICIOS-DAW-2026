@@ -9,63 +9,85 @@ public class Practica_Samurais {
         Scanner teclado =new Scanner(System.in);
         Random aleatorio = new Random();
 
-        final int POTENCIA_MAX=30;
-        final int numero_equipos=2;
-        final int numero_samurais=7;
+        final int POTENCIA_MAX = 30;
+        final int NUM_EQUIPOS = 2;
+        final int NUM_SAMURAIS = 7;
 
-        int equipo1[]= new int[numero_samurais];
-        int equipo2[]= new int[numero_samurais];
-
+        int[] equipo1 = new int[NUM_SAMURAIS];
+        int[] equipo2 = new int[NUM_SAMURAIS];
 
         System.out.println("-----------------------------------------");
         System.out.println("*** BIENVENID@ A LA BATALLA DE SAMURAIS ***");
         System.out.println("-----------------------------------------");
 
+        for (int numEquipo = 1; numEquipo <= NUM_EQUIPOS; numEquipo++) {
 
-        for (int i = 1; i < numero_equipos; i++) {
-            int equipo[];
-            int suma = 0;
-
-            if (i == 1) {
+            int[] equipo;
+            if (numEquipo == 1) {
                 equipo = equipo1;
             } else {
                 equipo = equipo2;
             }
 
+            boolean correcto = false;
+
             do {
-                System.out.println("EQUIPO " + i);
-                System.out.println(" INTRODUCE TUS 7 SAMURAIS, POTENCIA MÁXIMA DEL EQUIPO:(30). ");
+                System.out.println("* EQUIPO " + numEquipo + ", TU TURNO *");
+                System.out.println("INTRODUCE LAS 7 POTENCIAS DE TUS SAMURAIS (SEPARADOS POR COMAS):");
+
                 String potencia = teclado.nextLine();
-                String potencia_vector[] = potencia.split(" ");
+                String[] potencia_vector = potencia.split(",");
 
-                if (potencia_vector.length == numero_samurais){
-                    for (int j = 0; j < numero_samurais; j++) {
-
-                        try {
-                            int potencia_num = Integer.parseInt(potencia);
-                            
-                        }catch (NumberFormatException error){
-
-                        }
-
-                    }
+                if (potencia_vector.length != NUM_SAMURAIS) {
+                    System.out.println("ERROR: DEBES INTRODUCIR EXACTAMENTE 7 NÚMEROS SEPARADOS POR COMAS (,)");
+                    continue;
                 }
 
-                suma = 0;
+                int suma = 0;
+                try {
+                    for (int i = 0; i < NUM_SAMURAIS; i++) {
+                        int valor_potencia= Integer.parseInt(potencia_vector[i]);
 
+                        if (valor_potencia < 1 || valor_potencia > 24) {
+                            System.out.println("ERROR: CADA SAMURAI DEBE TENER LA POTENCIA ENTRE 1 Y 24...");
+                            break;
+                        }
 
-            }while ();
+                        equipo[i] = valor_potencia;
+                        suma += valor_potencia;
+                    }
+                } catch (NumberFormatException e) {
+                    System.out.println("ERROR: SOLO PUEDES INTRODUCIR NUMEROS ENTEROS...");
+                    continue;
+                }
 
+                if (suma == POTENCIA_MAX) {
+                    System.out.println("EQUIPO " + numEquipo + " CREADO CORRECTAMENTE.");
+                    correcto = true;
+                } else {
+                    System.out.println("ERROR: LA SUMA TOTAL DEBE SER 30 Y HAS PUESTO: " + suma);
+                }
 
-
-
-
-
-
-
-
-
-
+            } while (!correcto);
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }
