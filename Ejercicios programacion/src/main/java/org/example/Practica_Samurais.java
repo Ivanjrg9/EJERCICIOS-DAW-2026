@@ -71,23 +71,54 @@ public class Practica_Samurais {
             } while (!correcto);
         }
 
+        System.out.println("-------------------------------------------------");
+        System.out.println("*** ¡¡EMPIEZA LA BATALLA!! ***");
+        System.out.println("-------------------------------------------------");
 
+        int batalla = aleatorio.nextInt(7);
+        System.out.println(" LA BATALLA COMIENZA CON EL SAMURAI " + (batalla + 1) + ".");
 
+        int muertos1 = 0;
+        int muertos2 = 0;
 
+        while (muertos1 < 4 && muertos2 < 4){
+            int samuraie1 = equipo1[batalla];
+            int samuraie2 = equipo2[batalla];
 
+            System.out.println(" * SAMURAI " + (batalla + 1) + ".");
+            if (samuraie1 == samuraie2) {
+                System.out.println("Empate. Ambos samuráis caen. " + samuraie1 + " vs " + samuraie2);
+                equipo1[batalla] = 0;
+                equipo2[batalla] = 0;
+                muertos1++;
+                muertos2++;
 
+            } else if (samuraie1 > samuraie2) {
+                System.out.println("GANA EL EQUIPO 1. " + samuraie1 + " vs " + samuraie2);
+                equipo2[batalla] = 0;
+                muertos2++;
 
+            } else {
+                System.out.println("GANA EL EQUIPO 2. " + samuraie1 + " vs " + samuraie2);
+                equipo1[batalla] = 0;
+                muertos1++;
+            }
 
+            batalla++;
 
+            if (batalla == 7) {
+                batalla = 0;
+            }
+        }
 
+        if (muertos1 >= 4 && muertos2 >= 4) {
+            System.out.println("> EMPATE. LOS DOS EQUIPOS HAN PERDIDO DEMASIADOS SAMURAIS.");
 
+        } else if (muertos1 >= 4) {
+            System.out.println("> ¡EQUIPO 2 GANA! EL EQUIPO 1 HA TENIDO " + muertos1 + " MUERTOS.");
 
-
-
-
-
-
-
-
+        } else {
+            System.out.println("> ¡EQUIPO 1 GANA! EL EQUIPO 2 HA TENIDO " + muertos2 + " MUERTOS.");
+        }
     }
 }
