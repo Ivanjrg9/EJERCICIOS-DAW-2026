@@ -87,7 +87,7 @@ public class Practica_Samurais {
 
             System.out.println(" * SAMURAI " + (batalla + 1) + ".");
             if (samuraie1 == samuraie2) {
-                System.out.println("Empate. Ambos samuráis caen. " + samuraie1 + " vs " + samuraie2);
+                System.out.println("EMPATE... AMBOS SAMURAIS MUEREN. " + samuraie1 + " vs " + samuraie2);
                 equipo1[batalla] = 0;
                 equipo2[batalla] = 0;
                 muertos1++;
