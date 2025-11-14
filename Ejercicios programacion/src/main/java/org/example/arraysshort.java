@@ -19,5 +19,6 @@ public class arraysshort {
         int posicion = Arrays.binarySearch(vector_copia,20);
         System.out.println(posicion);
 
+
     }
 }

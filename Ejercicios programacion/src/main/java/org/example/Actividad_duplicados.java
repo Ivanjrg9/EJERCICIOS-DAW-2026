@@ -12,7 +12,7 @@ public class Actividad_duplicados {
         int vector_limpio[] = new int[vector.length];
         int tam =1;
         int aux[] = new int[vector.length];
-        aux[0]= 
+        aux[0]=0;
 
         for (int i = 1; i < vector.length; i++){
             if (vector[i]!=vector[i-1]){
