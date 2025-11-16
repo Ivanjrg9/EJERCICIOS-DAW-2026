@@ -47,57 +47,52 @@ public class Practica_primitiva {
         System.out.println("--------------------------------------------------------------------");
 
         for (int i = 0; i < num_sorteo.length; i++) {
-            num_sorteo[i]=aleatorio.nextInt(49)+1;
+            num_sorteo[i] = aleatorio.nextInt(49) + 1;
 
+            for (int j = 0; j < i; j++) {
+                if (num_sorteo[i] == num_sorteo[j]) {
+                    i--;
+                    break;
+                }
+            }
         }
 
+        Arrays.sort(num_sorteo);
+
         int auxiliar[] = new int[num_sorteo.length];
-        int tam=1;
+        int tam = 1;
 
-        auxiliar[0]=num_sorteo[0];
+        auxiliar[0] = num_sorteo[0];
 
-        for (int i=1;i<num_sorteo.length;i++){
-
-            if (num_sorteo[i]!=num_sorteo[i-1]){
-                auxiliar[i] = num_sorteo[i];
+        for (int i = 1; i < num_sorteo.length; i++) {
+            if (num_sorteo[i] != num_sorteo[i - 1]) {
+                auxiliar[tam] = num_sorteo[i];
                 tam++;
             }
-
         }
 
         int limpio[] = new int[tam];
-        int j=0;
+        int j = 0;
 
-        for (int i=0;i< auxiliar.length;i++){
-
-            if (auxiliar[i]!=0){
+        for (int i = 0; i < auxiliar.length; i++) {
+            if (auxiliar[i] != 0) {
                 limpio[j] = auxiliar[i];
                 j++;
             }
-
         }
 
-        Arrays.sort(limpio);
-        System.out.println(Arrays.toString(limpio));
+        System.out.println("*HA SALIDO: " + Arrays.toString(limpio));
 
-    }
+        num_complementario= aleatorio.nextInt(49)+1;
+        System.out.println("*COMPLEMENTARIO: " + num_complementario);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        num_reintegro= aleatorio.nextInt(9);
+        System.out.println("*REINTEGRO: " + num_reintegro);
+        System.out.println("--------------------------------------------------------------------");
 
 
     }
+
+}
 
 
