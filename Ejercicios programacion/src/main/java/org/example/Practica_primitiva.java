@@ -21,16 +21,16 @@ public class Practica_primitiva {
         do {
             System.out.println("INTRODUCE LOS NÚMEROS DE TU BOLETO (DEL 0 AL 49 Y N-N-N-N-N-N/R)");
             numeros_boleto=teclado.nextLine();
-            String num_voleto_array[] = numeros_boleto.split("-");
+            String num_voleto_vector[] = numeros_boleto.split("-");
 
-            for (int i = 0; i < num_voleto_array.length; i++) {
+            for (int i = 0; i < num_voleto_vector.length; i++) {
                 if (i>49 || i<0){
                     System.out.println("ERROR INTRODUCE NUMEROS ENTRE 1 Y 49");
                     correcto=false;
                 }
             }
 
-            if (numeros_boleto.matches("\\d{1,2}-\\d{1,2}-\\d{1,2}-\\d{1,2}-\\d{1,2}-\\d{1,2}-\\d{1}")){
+            if (numeros_boleto.matches("\\d{1,2}-\\d{1,2}-\\d{1,2}-\\d{1,2}-\\d{1,2}-\\d{1,2}/\\d{1}")){
                 correcto=true;
 
             }else {
@@ -40,7 +40,7 @@ public class Practica_primitiva {
 
         }while (correcto!=true);
 
-        String numeros_boleto_vector[] = numeros_boleto.split("-");
+        String numeros_boleto_vector[] = numeros_boleto.split("-/");
 
         System.out.println("--------------------------------------------------------------------");
         System.out.println("TU ELECCIÓN ES: " + Arrays.toString(numeros_boleto_vector));
@@ -81,7 +81,8 @@ public class Practica_primitiva {
             }
         }
 
-        System.out.println("*HA SALIDO: " + Arrays.toString(limpio));
+        System.out.println("*HA SALIDO: ");
+        System.out.println(Arrays.toString(limpio));
 
         num_complementario= aleatorio.nextInt(49)+1;
         System.out.println("*COMPLEMENTARIO: " + num_complementario);
@@ -89,6 +90,12 @@ public class Practica_primitiva {
         num_reintegro= aleatorio.nextInt(9);
         System.out.println("*REINTEGRO: " + num_reintegro);
         System.out.println("--------------------------------------------------------------------");
+
+
+
+
+
+
 
 
     }
