@@ -7,21 +7,37 @@ public class Actividad_duplicados {
     static void main() {
         Scanner Teclado = new Scanner(System.in);
 
-        int vector[] = {1,5,5,4,4,2,3};
+        int original[] = {1,1,2,2,3,4,4,4,5,5,6};
 
-        int vector_limpio[] = new int[vector.length];
-        int tam =1;
-        int aux[] = new int[vector.length];
-        aux[0]=0;
+        int auxiliar[] = new int[original.length];
+        int tam=1;
 
-        for (int i = 1; i < vector.length; i++){
-            if (vector[i]!=vector[i-1]){
-                aux[i] = vector[i];
+        auxiliar[0]=original[0];
+
+        for (int i=1;i<original.length;i++){
+
+            if (original[i]!=original[i-1]){
+                auxiliar[i] = original[i];
                 tam++;
-
             }
+
         }
-        System.out.println(Arrays.toString(vector));
+
+        System.out.println(Arrays.toString(auxiliar));
+
+        int limpio[] = new int[tam];
+        int j=0;
+
+        for (int i=0;i< auxiliar.length;i++){
+
+            if (auxiliar[i]!=0){
+                limpio[j] = auxiliar[i];
+                j++;
+            }
+
+        }
+
+        System.out.println(Arrays.toString(limpio));
 
     }
 }

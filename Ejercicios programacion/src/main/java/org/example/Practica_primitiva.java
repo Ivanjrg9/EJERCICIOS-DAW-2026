@@ -1,5 +1,6 @@
 package org.example;
 
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -8,9 +9,14 @@ public class Practica_primitiva {
         Scanner teclado = new Scanner(System.in);
         Random aleatorio = new Random();
 
+        int num_sorteo[] = new int[6];
+        int num_complementario = 0;
+        int num_reintegro = 0;
+
+
+
         boolean correcto=true;
         String numeros_boleto;
-
 
         do {
             System.out.println("INTRODUCE LOS NÚMEROS DE TU BOLETO (DEL 0 AL 49 Y N-N-N-N-N-N/R)");
@@ -34,6 +40,55 @@ public class Practica_primitiva {
 
         }while (correcto!=true);
 
+        String numeros_boleto_vector[] = numeros_boleto.split("-");
+
+        System.out.println("--------------------------------------------------------------------");
+        System.out.println("TU ELECCIÓN ES: " + Arrays.toString(numeros_boleto_vector));
+        System.out.println("--------------------------------------------------------------------");
+
+        for (int i = 0; i < num_sorteo.length; i++) {
+            num_sorteo[i]=aleatorio.nextInt(49)+1;
+
+        }
+
+        int auxiliar[] = new int[num_sorteo.length];
+        int tam=1;
+
+        auxiliar[0]=num_sorteo[0];
+
+        for (int i=1;i<num_sorteo.length;i++){
+
+            if (num_sorteo[i]!=num_sorteo[i-1]){
+                auxiliar[i] = num_sorteo[i];
+                tam++;
+            }
+
+        }
+
+        int limpio[] = new int[tam];
+        int j=0;
+
+        for (int i=0;i< auxiliar.length;i++){
+
+            if (auxiliar[i]!=0){
+                limpio[j] = auxiliar[i];
+                j++;
+            }
+
+        }
+
+        Arrays.sort(limpio);
+        System.out.println(Arrays.toString(limpio));
+
+    }
+
+
+
+
+
+
+
+
 
 
 
@@ -45,4 +100,4 @@ public class Practica_primitiva {
 
     }
 
-}
+
