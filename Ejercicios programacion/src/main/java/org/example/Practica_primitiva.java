@@ -94,18 +94,19 @@ public class Practica_primitiva {
         System.out.println("--------------------------------------------------------------------");
 
 
-        int numero_boleto_vector_int[] = new int[numeros_boleto_vector.length];
-
         int aciertos = 0;
 
-        for (int i = 0; i < numero_boleto_vector_int.length; i++) {
-            for (int k = 0; k < limpio.length; k++) {
-                if (numero_boleto_vector_int[i]==limpio[i]){
+        for (int i = 0; i < numeros_boleto_vector.length; i++) {
+
+            int valor = Integer.parseInt(numeros_boleto_vector[i]);
+
+            for (int k = 0; k < limpio.length; j++) {
+
+                if (valor == limpio[k]) {
                     aciertos++;
+                    break;
                 }
-
             }
-
         }
 
         int reintegro = Integer.parseInt(numeros_boleto_vector[numeros_boleto_vector.length-1]);
@@ -114,7 +115,7 @@ public class Practica_primitiva {
             aciertos++;
         }
 
-        System.out.println("HAS ACERTADO " + aciertos + " NÚMEROS");
+        System.out.print("HAS ACERTADO " + aciertos + " NÚMEROS");
 
 
     }
