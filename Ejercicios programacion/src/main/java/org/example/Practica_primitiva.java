@@ -12,18 +12,20 @@ public class Practica_primitiva {
         int num_sorteo[] = new int[6];
         int num_complementario = 0;
         int num_reintegro = 0;
+        String numeros_boleto_vector[];
 
 
 
         boolean correcto=true;
         String numeros_boleto;
 
+
         do {
             System.out.println("INTRODUCE LOS NÚMEROS DE TU BOLETO (DEL 0 AL 49 Y N-N-N-N-N-N/R)");
             numeros_boleto=teclado.nextLine();
-            String num_voleto_vector[] = numeros_boleto.split("-");
+            numeros_boleto_vector = numeros_boleto.split("[-/]");
 
-            for (int i = 0; i < num_voleto_vector.length; i++) {
+            for (int i = 0; i < numeros_boleto_vector.length; i++) {
                 if (i>49 || i<0){
                     System.out.println("ERROR INTRODUCE NUMEROS ENTRE 1 Y 49");
                     correcto=false;
@@ -40,7 +42,7 @@ public class Practica_primitiva {
 
         }while (correcto!=true);
 
-        String numeros_boleto_vector[] = numeros_boleto.split("-/");
+
 
         System.out.println("--------------------------------------------------------------------");
         System.out.println("TU ELECCIÓN ES: " + Arrays.toString(numeros_boleto_vector));
@@ -87,15 +89,32 @@ public class Practica_primitiva {
         num_complementario= aleatorio.nextInt(49)+1;
         System.out.println("*COMPLEMENTARIO: " + num_complementario);
 
-        num_reintegro= aleatorio.nextInt(9);
+        num_reintegro= aleatorio.nextInt(10);
         System.out.println("*REINTEGRO: " + num_reintegro);
         System.out.println("--------------------------------------------------------------------");
 
 
+        int numero_boleto_vector_int[] = new int[numeros_boleto_vector.length];
 
+        int aciertos = 0;
 
+        for (int i = 0; i < numero_boleto_vector_int.length; i++) {
+            for (int k = 0; k < limpio.length; k++) {
+                if (numero_boleto_vector_int[i]==limpio[i]){
+                    aciertos++;
+                }
 
+            }
 
+        }
+
+        int reintegro = Integer.parseInt(numeros_boleto_vector[numeros_boleto_vector.length-1]);
+
+        if (num_reintegro == reintegro){
+            aciertos++;
+        }
+
+        System.out.println("HAS ACERTADO " + aciertos + " NÚMEROS");
 
 
     }
