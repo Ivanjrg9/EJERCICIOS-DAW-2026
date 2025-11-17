@@ -35,7 +35,7 @@ public class Practica_primitiva {
 
             }else {
                 System.out.println("FORMATO INCORRECTO");
-                correcto=false;
+                correcto = false;
             }
 
         }while (correcto!=true);
