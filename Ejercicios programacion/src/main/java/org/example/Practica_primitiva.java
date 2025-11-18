@@ -89,33 +89,103 @@ public class Practica_primitiva {
         num_complementario= aleatorio.nextInt(49)+1;
         System.out.println("*COMPLEMENTARIO: " + num_complementario);
 
-        num_reintegro= aleatorio.nextInt(10);
+        num_reintegro= aleatorio.nextInt(9)+1;
         System.out.println("*REINTEGRO: " + num_reintegro);
         System.out.println("--------------------------------------------------------------------");
 
+        int acierto= 0;
+        int reintegro= num_reintegro;
+        int complementario= num_complementario;
 
-        int aciertos = 0;
 
-        for (int i = 0; i < numeros_boleto_vector.length; i++) {
+        int boleto_original[]= new int[6];
 
-            int valor = Integer.parseInt(numeros_boleto_vector[i]);
+        for (int i = 0; i < boleto_original.length; i++) {
+            boleto_original[i]=Integer.parseInt(numeros_boleto_vector[i]);
 
-            for (int k = 0; k < limpio.length; j++) {
-
-                if (valor == limpio[k]) {
-                    aciertos++;
-                    break;
+            for (int k = 0; k < limpio.length; k++) {
+                if (boleto_original[i]==limpio[k]){
+                    acierto++;
                 }
             }
         }
+        boolean acierto_complementario = false;
 
-        int reintegro = Integer.parseInt(numeros_boleto_vector[numeros_boleto_vector.length-1]);
-
-        if (num_reintegro == reintegro){
-            aciertos++;
+        for (int i = 0; i < boleto_original.length; i++) {
+            if (boleto_original[i] == complementario) {
+                acierto_complementario = true;
+                break;
+            }
         }
 
-        System.out.print("HAS ACERTADO " + aciertos + " NÚMEROS");
+        int reintegro_boleto = Integer.parseInt(numeros_boleto_vector[6]);
+
+        boolean acierto_reintegro = false;
+        if (reintegro_boleto == reintegro) {
+            acierto_reintegro = true;
+        }
+
+        System.out.println("EL RESULTADO ES...");
+        System.out.println("------------------------------------");
+        System.out.println("ACERTADOS: " + acierto);
+        System.out.println("COMPLEMENTARIO: " + acierto_complementario);
+        System.out.println("REINTEGRO: " + acierto_reintegro);
+        System.out.println("------------------------------------");
+
+        switch (acierto) {
+            case 6:
+                System.out.println("¡HAS ACERTADO 6! — PREMIO: CATEGORÍA ESPECIAL");
+                break;
+
+            case 5:
+                if (acierto_complementario) {
+                    System.out.println("¡5 + COMPLEMENTARIO! — SEGUNDA CATEGORÍA");
+                } else {
+                    System.out.println("¡HAS ACERTADO 5! — TERCERA CATEGORÍA");
+                }
+                break;
+
+            case 4:
+                System.out.println("HAS ACERTADO 4 — CUARTA CATEGORÍA");
+                break;
+
+            case 3:
+                System.out.println("HAS ACERTADO 3 — QUINTA CATEGORÍA (PREMIO PEQUEÑO)");
+                break;
+
+            case 2:
+                if (acierto_reintegro) {
+                    System.out.println("2 ACIERTOS + REINTEGRO — PREMIO");
+                } else {
+                    System.out.println("HAS ACERTADO 2 — SIN PREMIO");
+                }
+                break;
+
+            case 1:
+            case 0:
+                if (acierto_reintegro) {
+                    System.out.println("REINTEGRO ACIERTADO — TE DEVUELVEN EL DINERO");
+                } else {
+                    System.out.println("SIN PREMIO");
+                }
+                break;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     }
