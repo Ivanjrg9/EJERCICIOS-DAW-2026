@@ -139,7 +139,6 @@ public class Practica_primitiva {
             case 6:
                 System.out.println("¡HAS ACERTADO 6! — PREMIO: CATEGORÍA ESPECIAL");
                 break;
-
             case 5:
                 if (acierto_complementario) {
                     System.out.println("¡5 + COMPLEMENTARIO! — SEGUNDA CATEGORÍA");
@@ -147,15 +146,12 @@ public class Practica_primitiva {
                     System.out.println("¡HAS ACERTADO 5! — TERCERA CATEGORÍA");
                 }
                 break;
-
             case 4:
                 System.out.println("HAS ACERTADO 4 — CUARTA CATEGORÍA");
                 break;
-
             case 3:
                 System.out.println("HAS ACERTADO 3 — QUINTA CATEGORÍA (PREMIO PEQUEÑO)");
                 break;
-
             case 2:
                 if (acierto_reintegro) {
                     System.out.println("2 ACIERTOS + REINTEGRO — PREMIO");
@@ -163,7 +159,6 @@ public class Practica_primitiva {
                     System.out.println("HAS ACERTADO 2 — SIN PREMIO");
                 }
                 break;
-
             case 1:
             case 0:
                 if (acierto_reintegro) {
