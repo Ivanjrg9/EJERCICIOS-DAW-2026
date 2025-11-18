@@ -14,33 +14,36 @@ public class Practica_primitiva {
         int num_reintegro = 0;
         String numeros_boleto_vector[];
 
-
-
         boolean correcto=true;
         String numeros_boleto;
 
 
         do {
+            correcto = true;
+
             System.out.println("INTRODUCE LOS NÚMEROS DE TU BOLETO (DEL 0 AL 49 Y N-N-N-N-N-N/R)");
-            numeros_boleto=teclado.nextLine();
+            numeros_boleto = teclado.nextLine();
             numeros_boleto_vector = numeros_boleto.split("[-/]");
 
-            for (int i = 0; i < numeros_boleto_vector.length; i++) {
-                if (i>49 || i<0){
-                    System.out.println("ERROR INTRODUCE NUMEROS ENTRE 1 Y 49");
-                    correcto=false;
-                }
-            }
-
-            if (numeros_boleto.matches("\\d{1,2}-\\d{1,2}-\\d{1,2}-\\d{1,2}-\\d{1,2}-\\d{1,2}/\\d{1}")){
-                correcto=true;
-
-            }else {
+            if (!numeros_boleto.matches("\\d{1,2}-\\d{1,2}-\\d{1,2}-\\d{1,2}-\\d{1,2}-\\d{1,2}/\\d{1}")) {
                 System.out.println("FORMATO INCORRECTO");
                 correcto = false;
             }
 
-        }while (correcto!=true);
+            if (correcto) {
+                for (int i = 0; i < numeros_boleto_vector.length; i++) {
+
+                    int valor = Integer.parseInt(numeros_boleto_vector[i]);
+
+                    if (valor < 1 || valor > 49) {
+                        System.out.println("ERROR: LOS NÚMEROS INTRODUCIDOS TIENEN QUE ESTAR ENTRE 1 Y 49.");
+                        correcto = false;
+                        break;
+                    }
+                }
+            }
+
+        } while (!correcto);
 
 
 
