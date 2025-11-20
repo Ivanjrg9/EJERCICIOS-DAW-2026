@@ -21,6 +21,6 @@ public class Ejercicio4_BuclesAnidados {
             System.out.print(i + " ");
             
         }
-        
+
     }
 }

@@ -47,5 +47,10 @@ public class Matrices {
             System.out.println();
 
         }
+
+        for (int i = 0; i < matriz.length; i++) {
+            System.out.println(matriz[i]);
+
+        }
     }
 }
