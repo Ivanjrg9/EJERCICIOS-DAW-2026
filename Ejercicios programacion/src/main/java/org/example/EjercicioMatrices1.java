@@ -28,10 +28,6 @@ public class EjercicioMatrices1 {
                     System.out.print(matriz[i][j] + " ");
                 }
 
-
-
-
-
             }
 
         }
