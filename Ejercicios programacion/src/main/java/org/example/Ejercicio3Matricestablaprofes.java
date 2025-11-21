@@ -61,22 +61,5 @@ public class Ejercicio3Matricestablaprofes {
             System.out.println("Lamedia de " + notas[0][i] + " es " + (double) (sma_notas/estudiantes));
         }
 
-
-
-        //for (int i = 0; i < estudiantes; i++) {
-          // System.out.println("Introduce el nombre del estudiante " + (i+1));
-           // String nombres = teclado.next();
-       // }
-
-        //for (int i = 0; i < asignaturas; i++) {
-          //  System.out.println("Introduce la asignatura " + (i+1));
-          //  String asignatura = teclado.next();
-
-       // }
-
-
-
-
-
     }
 }
