@@ -1,12 +1,13 @@
 package org.example;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class PracticaZXSpectrum {
     static void main() {
         Scanner teclado = new Scanner(System.in);
 
-        String letraspixel;
+        String[] columnapixel;
 
 
         System.out.println("**************************************************************************");
@@ -30,15 +31,44 @@ public class PracticaZXSpectrum {
             System.out.println("----------------------------------------------------------------------");
             System.out.println("Introduce (línea a línea) los colores de tu imagen para cada píxel: ");
 
+            String matriz[][] = new String[alto][ancho];
+
             for (int i = 0; i < alto; i++) {
-                 letraspixel = teclado.nextLine();
+                String filapixel= teclado.nextLine();
+
+                if (filapixel.length() != ancho) {
+                    System.out.println("ERROR: La línea debe tener exactamente " + ancho + " letras.");
+                    i--;
+                    continue;
+                }
+                if (!filapixel.matches("[a-oA-O]+")) {
+                    System.out.println("ERROR: Solo puedes usar letras de la A a la O.");
+                    i--;
+                    continue;
+                }
+                columnapixel = filapixel.split("");
+
+                for (int j = 0; j < ancho; j++) {
+                    matriz[i][j] = columnapixel[j];
+                }
+
             }
 
-            int matriz[][] = new int[alto][ancho];
+            for (String filas[]: matriz){
+                System.out.println(Arrays.toString(filas));
+            }
+            
+            
+
+
+            
+
+
 
         }else {
             System.out.println("Error: Introduce solo múltiplos de 8 y que no sean mayores de 48...");
         }
+
 
 
 
