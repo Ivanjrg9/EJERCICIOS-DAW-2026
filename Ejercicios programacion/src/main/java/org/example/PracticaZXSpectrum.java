@@ -1,13 +1,12 @@
 package org.example;
 
 import java.util.Arrays;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class PracticaZXSpectrum {
     static void main() {
         Scanner teclado = new Scanner(System.in);
-
-        String[] columnapixel;
 
 
         System.out.println("**************************************************************************");
@@ -18,12 +17,23 @@ public class PracticaZXSpectrum {
         System.out.println(">(Ambos deben ser múltiplos de 8 y no mayores de 48)<");
         System.out.println("--------------------------------------------------------------------------");
 
-        System.out.println("Ancho: ");
-        int ancho = teclado.nextInt();
+        String[] columnapixel;
 
-        System.out.println("Alto: ");
-        int alto = teclado.nextInt();
-        teclado.nextLine();
+        int ancho = 0;
+        int alto = 0;
+
+        try {
+            System.out.println("Ancho: ");
+            ancho = teclado.nextInt();
+
+            System.out.println("Alto: ");
+            alto = teclado.nextInt();
+            teclado.nextLine();
+        } catch (InputMismatchException E) {
+            System.out.println("Error: Debes introducir solo numeros...");
+            return;
+
+        }
 
         if (alto % 8 == 0 && ancho % 8 == 0 && alto < 48 && ancho < 48){
             System.out.println("----------------------------------------------------------------------");
@@ -53,36 +63,22 @@ public class PracticaZXSpectrum {
                 }
 
             }
-
             for (String filas[]: matriz){
                 System.out.println(Arrays.toString(filas));
             }
-            
-            
 
+            int contador=0;
 
-            
+            for (int i = 0; i < matriz.length; i+=8) {
 
+                for (int j = 0; j < matriz[i].length; j+=8) {
 
+                }
+
+            }
 
         }else {
             System.out.println("Error: Introduce solo múltiplos de 8 y que no sean mayores de 48...");
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }
