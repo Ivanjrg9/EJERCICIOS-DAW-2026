@@ -10,6 +10,7 @@ public class ejercicio3vectores {
         Random aleatorio = new Random();
 
         int vector[] = new int[25];
+        int vector2[]= {1,2,3,4,5,6,7};
 
         for (int i = 0; i < vector.length; i++) {
 
@@ -28,5 +29,7 @@ public class ejercicio3vectores {
 
         }
         System.out.println("El numero " + numeri_buscar + " aparece " + " veces en el vector");
+        System.out.println(vector2.length);
     }
+
 }
