@@ -1,8 +1,7 @@
-package org.example;
+package org.example.EjerciciosexamenU3;
 import java.util.Random;
 import java.util.Scanner;
 public class NotitaAmor {
-
     public static void main(String[] args) {
         // Hecho entero tirando de IA, con fin de entenderlo
         int posicionAlumno = 0; // Posición inicial (Aula 0)
