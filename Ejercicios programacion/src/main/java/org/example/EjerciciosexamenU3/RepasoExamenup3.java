@@ -1,7 +1,6 @@
-package org.example;
+package org.example.EjerciciosexamenU3;
 
 import java.util.Arrays;
-import java.util.Formattable;
 import java.util.Random;
 import java.util.Scanner;
 
