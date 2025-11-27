@@ -1,5 +1,4 @@
-package org.example;
-import java.lang.runtime.SwitchBootstraps;
+package org.example.Practicas;
 import java.util.Scanner;
 
 public class PracticaCalculadora {

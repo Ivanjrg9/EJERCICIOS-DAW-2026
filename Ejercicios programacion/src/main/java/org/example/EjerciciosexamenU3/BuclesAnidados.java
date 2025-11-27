@@ -1,6 +1,4 @@
-package org.example;
-
-import java.util.Scanner;
+package org.example.EjerciciosexamenU3;
 
 public class BuclesAnidados {
     static void main() {

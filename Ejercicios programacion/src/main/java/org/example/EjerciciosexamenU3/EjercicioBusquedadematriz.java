@@ -1,4 +1,4 @@
-package org.example;
+package org.example.EjerciciosexamenU3;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -35,12 +35,7 @@ public class EjercicioBusquedadematriz {
                     System.out.println("El numero " + numerobuscar + " se encuentra en la posicion( " + i + "," + j + ".)");
                     break matriz;
                 }
-
-
-
-
             }
-
         }
 
 

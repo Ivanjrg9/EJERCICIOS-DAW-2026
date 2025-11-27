@@ -1,8 +1,6 @@
-package org.example;
+package org.example.EjerciciosexamenU3;
 
 import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.Scanner;
 
 public class arraysshort {

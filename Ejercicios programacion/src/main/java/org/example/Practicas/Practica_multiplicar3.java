@@ -1,4 +1,4 @@
-package org.example;
+package org.example.Practicas;
 
 public class Practica_multiplicar3 {
     static void main(String[] args){
