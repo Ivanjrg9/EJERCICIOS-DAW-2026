@@ -122,9 +122,5 @@ public class RepasoExamenup3 {
         if (aciertosTotales == 9) {
             System.out.println("¡BINGO!");
         }
-
-
-
-
     }
 }
