@@ -26,18 +26,16 @@ public class duplicados_distinct {
 
         while (comprobar) {
             comprobar=false;
-            for (int i = 0; i < numeros.length; i++) {
-                if (i != numeros.length - 1 && numeros[i] == numeros[i + 1]) {
+            for (int i = 0; i < numeros.length -1; i++) {
+                if (numeros[i]==numeros[i+1]) {
                     System.out.println("duplicado: " + numeros[i]);
-                    System.out.println(Arrays.toString(numeros));
-                    numeros[i] = aleatorio.nextInt(10) + 1;
+                    numeros[i] = aleatorio.nextInt(50) + 1;
                     Arrays.sort(numeros);
                     comprobar = true;
                 }
             }
         }
-
+        System.out.println(Arrays.toString(numeros));
     }
-
 }
 

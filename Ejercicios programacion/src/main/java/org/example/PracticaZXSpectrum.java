@@ -75,9 +75,7 @@ public class PracticaZXSpectrum {
                     if (matriz[i]==matriz[j]){
                         contador++;
                     }
-
                 }
-
             }
             if (contador>3){
                 System.out.println("No es compatible con ZXSpectrum");
