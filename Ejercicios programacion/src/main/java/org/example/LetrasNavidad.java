@@ -20,9 +20,9 @@ public class LetrasNavidad {
         System.out.println(Arrays.toString(palabra_vector));
         System.out.println(Arrays.toString(letras_vector));
 
-        if (palabra_vector.length==letras_vector.length){
+        if (palabra_vector.length == letras_vector.length) {
 
-            for (int i = 0; i < palabra_vector.length ; i++) {
+            for (int i = 0; i < palabra_vector.length; i++) {
 
                 for (int j = 0; j < Integer.parseInt(letras_vector[i]); j++) {
                     System.out.print(palabra_vector[i]);
@@ -31,7 +31,7 @@ public class LetrasNavidad {
 
             }
 
-        }else {
+        } else {
             System.out.println("Datos invcorrectos, no hay numero para cada letra ");
         }
     }

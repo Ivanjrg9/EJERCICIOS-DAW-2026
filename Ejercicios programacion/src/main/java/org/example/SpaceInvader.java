@@ -8,25 +8,25 @@ public class SpaceInvader {
         Scanner teclado = new Scanner(System.in);
 
         System.out.println("Introduce el numero de filas:");
-        int filas= teclado.nextInt();
+        int filas = teclado.nextInt();
 
-        String matriz[][]= new String[filas][3];
+        String matriz[][] = new String[filas][3];
 
         for (int i = 0; i < matriz.length; i++) {
 
-            String fila[]=teclado.next().split("");
+            String fila[] = teclado.next().split("");
 
-            if (fila.length==matriz[i].length){
+            if (fila.length == matriz[i].length) {
                 for (int j = 0; j < matriz[i].length; j++) {
-                    matriz[i][j]=fila[j];
+                    matriz[i][j] = fila[j];
 
                 }
 
-            }else {
+            } else {
                 System.out.println("La entrada no tiene 3 elementos");
             }
         }
-        for (String fila[]:matriz){
+        for (String fila[] : matriz) {
             System.out.println(Arrays.toString(fila));
         }
 
