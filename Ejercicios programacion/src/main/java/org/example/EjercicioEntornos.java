@@ -11,6 +11,7 @@ public class EjercicioEntornos {
 
         System.out.println("Como se llaman?");
         for (int i = 0; i < personas; i++) {
+            System.out.println("Soy:");
             String nombres = teclado.next();
             System.out.println("---------------------");
             System.out.println("Hola " + nombres + " ;)");
