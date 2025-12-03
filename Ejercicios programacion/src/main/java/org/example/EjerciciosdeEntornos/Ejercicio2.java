@@ -19,7 +19,7 @@ public class Ejercicio2 {
 
         for (int i = 0; i < casosdeuso; i++) {
             String frases = teclado.nextLine();
-            if (frases.length()>3){
+            if (frases.length()>40){
                 System.out.println("Error: La frase/palabra debe de tener maximo 40 letras");
             }
 
