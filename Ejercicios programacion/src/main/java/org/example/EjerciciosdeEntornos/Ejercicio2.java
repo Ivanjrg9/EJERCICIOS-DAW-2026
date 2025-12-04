@@ -22,7 +22,6 @@ public class Ejercicio2 {
             if (frases.length()>40){
                 System.out.println("Error: La frase/palabra debe de tener maximo 40 letras");
             }
-
         }
 
 
