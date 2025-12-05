@@ -14,7 +14,7 @@ public class EjercicioEntornos {
             System.out.println("Soy:");
             String nombres = teclado.next();
             System.out.println("---------------------");
-            System.out.println("Hola " + nombres + " ;)");
+            System.out.println("Hola, " + nombres + " ;)");
             System.out.println("---------------------");
         }
     }
