@@ -13,9 +13,7 @@ public class Hundirlaflota {
 
         int flota[]= barcos(teclado);
         int mitablero[][]=tablero(teclado);
-
-
-
+        buscar_barcos(mitablero);
 
     }
 
@@ -81,58 +79,61 @@ public class Hundirlaflota {
         return tablero;
     }
 
-    public static int[] buscarBarcosHorizontal(int[][] tablero) {
-        int[] barcos = new int[10]; // Para guardar tamaños
-        int numBarcos = 0;
+    public static void buscar_barcos(int[][] tablero) {
 
-        for (int fila = 0; fila < tablero.length; fila++) {
-            int tamanyo = 0;
+        int num_barcos_horizontal = 0;
 
-            for (int col = 0; col < tablero[fila].length; col++) {
-                if (tablero[fila][col] == 1) {
-                    tamanyo++;                 // Contamos la longitud del barco
-                    tablero[fila][col] = 2;   // Marcamos como visitado
-                } else if (tamanyo > 0) {
-                    // Terminó un barco horizontal
-                    barcos[numBarcos++] = tamanyo;
-                    tamanyo = 0;
+        for (int i = 0; i < tablero.length; i++) {
+            int contador_unos = 0;
+
+            for (int j = 0; j < tablero[i].length; j++) {
+
+                if (tablero[i][j] == 1) {
+                    contador_unos++;
+                } else {
+
+                    if (contador_unos >= 2) {
+                        num_barcos_horizontal++;
+                        System.out.println("Barco horizontal encontrado en fila " + i + " de tamaño " + contador_unos);
+                    }
+                    contador_unos = 0;
                 }
             }
 
-            // Si el barco llega hasta el final de la fila
-            if (tamanyo > 0) {
-                barcos[numBarcos++] = tamanyo;
+            if (contador_unos >= 2) {
+                num_barcos_horizontal++;
+                System.out.println("Barco horizontal encontrado en fila " + i + " de tamaño " + contador_unos);
             }
         }
 
-        return barcos; // Devuelve los tamaños de los barcos encontrados
-    }
+        int num_barcos_vertical = 0;
 
-    public static int[] buscarBarcosVertical(int[][] tablero) {
-        int[] barcos = new int[10];
-        int numBarcos = 0;
+        for (int j = 0; j < tablero.length; j++) {
+            int contador_unos = 0;
 
-        for (int col = 0; col < tablero.length; col++) {
-            int tamanyo = 0;
+            for (int i = 0; i < tablero.length; i++) {
 
-            for (int fila = 0; fila < tablero.length; fila++) {
-                if (tablero[fila][col] == 1) {
-                    tamanyo++;
-                    tablero[fila][col] = 2;
-                } else if (tamanyo > 0) {
-                    barcos[numBarcos++] = tamanyo;
-                    tamanyo = 0;
+                if (tablero[i][j] == 1) {
+                    contador_unos++;
+                } else {
+                    if (contador_unos >= 2) {
+                        num_barcos_vertical++;
+                        System.out.println("Barco vertical en columna " + j + " de tamaño " + contador_unos);
+                    }
+                    contador_unos = 0;
                 }
             }
 
-            if (tamanyo > 0) {
-                barcos[numBarcos++] = tamanyo;
+            if (contador_unos >= 2) {
+                num_barcos_vertical++;
+                System.out.println("Barco vertical en columna " + j + " de tamaño " + contador_unos);
             }
         }
+        int total_barcos = num_barcos_horizontal + num_barcos_vertical;
 
-        return barcos;
+        System.out.println("--------------------------------");
+        System.out.println("Barcos horizontales: " + num_barcos_horizontal);
+        System.out.println("Barcos verticales: " + num_barcos_vertical);
+        System.out.println("TOTAL BARCOS: " + total_barcos);
     }
-
-
-
 }
