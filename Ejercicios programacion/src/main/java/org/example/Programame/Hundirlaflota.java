@@ -10,8 +10,6 @@ public class Hundirlaflota {
         System.out.println("-----------------------------------------------------");
         barcos();
         tablero();
-
-
     }
 
     public static void barcos(){
