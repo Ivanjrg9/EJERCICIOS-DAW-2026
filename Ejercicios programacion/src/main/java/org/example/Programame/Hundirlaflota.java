@@ -10,21 +10,27 @@ public class Hundirlaflota {
         System.out.println("-----------------------------------------------------");
         System.out.println("*** Bienvenid@ a hundir la flota ***");
         System.out.println("-----------------------------------------------------");
-<<<<<<< HEAD
-        barcos();
-        tablero();
-=======
 
         int flota[]= barcos(teclado);
         int mitablero[][]=tablero(teclado);
         buscar_barcos(mitablero);
 
->>>>>>> 1097f016640c101593945840ccd0485d10b96376
     }
 
     public static int[] barcos(Scanner teclado){
-        System.out.println("Cuantos barcos vas a querer en tu flota? (Máximo 10)");
-        int numerobarcos = teclado.nextInt();
+
+        int numerobarcos = 0;
+
+            System.out.print("Cuantos barcos vas a querer en tu flota? (Máximo 10): ");
+
+            if (teclado.hasNextInt()) {
+                numerobarcos = teclado.nextInt();
+
+            } else {
+                System.out.println("ERROR: No se admiten letras");
+                teclado.next(); //
+            }
+
 
         int barcos[] = new int [0];
         if (numerobarcos>0 && numerobarcos<=10){
@@ -34,9 +40,16 @@ public class Hundirlaflota {
 
             for (int i = 0; i < numerobarcos; i++) {
                 System.out.print("Barco " + (i+1) + " :");
+                if (teclado.hasNextInt()){
                     barcos[i] = teclado.nextInt();
-                if (barcos[i] < 2 || barcos[i] > 5){
-                    System.out.println("Introdúcelo de nuevo, tamaño incorrecto...");
+                    if (barcos[i] < 2 || barcos[i] > 5){
+                        System.out.println("Introdúcelo de nuevo, tamaño incorrecto...");
+                        i--;
+                        continue;
+                    }
+                }else {
+                    System.out.println("ERROR: Solo se admiten numeros...");
+                    teclado.next();
                     i--;
                     continue;
                 }
@@ -62,6 +75,7 @@ public class Hundirlaflota {
 
             }else {
                 System.out.println("ERROR: No se admiten letras...");
+                teclado.next();
             }
 
         } while (dimensiones < 1 || dimensiones > 128);
@@ -73,17 +87,15 @@ public class Hundirlaflota {
         for (int i = 0; i < dimensiones; i++) {
             for (int j = 0; j < dimensiones; j++) {
                 System.out.print("Valor en [" + i + "][" + j + "]: ");
-                int verificar01 = teclado.nextInt();
+                String verificar01 = teclado.next();
 
-                if (verificar01 == 0 || verificar01 == 1){
-                    tablero[i][j] = verificar01;
-                }else {
-                    System.out.println("ERROR: Solo se permite rellenar el tablero con 0 o 1...");
+                if (verificar01.equals("0") || verificar01.equals("1")) {
+                    tablero[i][j] = Integer.parseInt(verificar01);
+                } else {
+                    System.out.println("ERROR: Solo se permite 0 o 1.");
                     j--;
                 }
-
             }
-
         }
 
         System.out.println("Tu tablero es:");
