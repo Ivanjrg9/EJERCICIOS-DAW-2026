@@ -68,8 +68,17 @@ public class Hundirlaflota {
         for (int i = 0; i < dimensiones; i++) {
             for (int j = 0; j < dimensiones; j++) {
                 System.out.print("Valor en [" + i + "][" + j + "]: ");
-                tablero[i][j] = teclado.nextInt();
+                int verificar01 = teclado.nextInt();
+
+                if (verificar01 == 0 || verificar01 == 1){
+                    tablero[i][j] = verificar01;
+                }else {
+                    System.out.println("ERROR: Solo se permite rellenar el tablero con 0 o 1...");
+                    j--;
+                }
+
             }
+
         }
 
         System.out.println("Tu tablero es:");
