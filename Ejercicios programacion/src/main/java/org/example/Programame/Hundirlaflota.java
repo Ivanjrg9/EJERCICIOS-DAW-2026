@@ -17,7 +17,7 @@ public class Hundirlaflota {
 
         teclado.close();
     }
-    
+
     public static int[] barcos(Scanner teclado){
 
         int numeroBarcos = 0;
