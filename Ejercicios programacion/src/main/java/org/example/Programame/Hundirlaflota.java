@@ -17,8 +17,7 @@ public class Hundirlaflota {
 
         teclado.close();
     }
-
-
+    
     public static int[] barcos(Scanner teclado){
 
         int numeroBarcos = 0;
@@ -60,7 +59,6 @@ public class Hundirlaflota {
 
         return tamanosBarcos;
     }
-
 
     public static int[][] tablero(Scanner teclado) {
 
@@ -104,7 +102,6 @@ public class Hundirlaflota {
         return tablero;
     }
 
-
     public static void buscar_barcos(int[][] tablero) {
 
         int tamano = tablero.length;
@@ -112,7 +109,6 @@ public class Hundirlaflota {
 
         int barcosHorizontales = 0;
         int barcosVerticales = 0;
-
 
         for (int i = 0; i < tamano; i++) {
             int contador = 0;
@@ -142,7 +138,6 @@ public class Hundirlaflota {
             }
         }
 
-
         for (int j = 0; j < tamano; j++) {
             int contador = 0;
             for (int i = 0; i < tamano; i++) {
@@ -171,24 +166,23 @@ public class Hundirlaflota {
             }
         }
 
-
-        int barcosTamaño1 = 0;
+        int barcosTamanyo1 = 0;
         for (int i = 0; i < tamano; i++) {
             for (int j = 0; j < tamano; j++) {
                 if (tablero[i][j] == 1 && !visitado[i][j]) {
-                    barcosTamaño1++;
+                    barcosTamanyo1++;
                     System.out.println("Barco de tamaño 1 encontrado en [" + i + "][" + j + "]");
                     visitado[i][j] = true;
                 }
             }
         }
 
-        int total = barcosHorizontales + barcosVerticales + barcosTamaño1;
+        int total = barcosHorizontales + barcosVerticales + barcosTamanyo1;
 
         System.out.println("--------------------------------");
         System.out.println("Barcos horizontales: " + barcosHorizontales);
         System.out.println("Barcos verticales: " + barcosVerticales);
-        System.out.println("Barcos de tamaño 1: " + barcosTamaño1);
+        System.out.println("Barcos de tamaño 1: " + barcosTamanyo1);
         System.out.println("TOTAL BARCOS: " + total);
     }
 }
