@@ -4,50 +4,49 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Hundirlaflota {
-    static void main(String[] args) {
+    public static void main(String[] args) {
         Scanner teclado = new Scanner(System.in);
 
         System.out.println("-----------------------------------------------------");
         System.out.println("*** Bienvenid@ a hundir la flota ***");
         System.out.println("-----------------------------------------------------");
 
-        int flota[]= barcos(teclado);
-        int mitablero[][]=tablero(teclado);
-        buscar_barcos(mitablero);
+        int[] flota = barcos(teclado);
+        int[][] tableroJuego = tablero(teclado);
+        buscar_barcos(tableroJuego);
 
+        teclado.close();
     }
+
 
     public static int[] barcos(Scanner teclado){
 
-        int numerobarcos = 0;
+        int numeroBarcos = 0;
 
-            System.out.print("Cuantos barcos vas a querer en tu flota? (Máximo 10): ");
+        System.out.print("Cuantos barcos vas a querer en tu flota? (Máximo 10): ");
+        if (teclado.hasNextInt()) {
+            numeroBarcos = teclado.nextInt();
+        } else {
+            System.out.println("ERROR: No se admiten letras");
+            teclado.next();
+        }
 
-            if (teclado.hasNextInt()) {
-                numerobarcos = teclado.nextInt();
-
-            } else {
-                System.out.println("ERROR: No se admiten letras");
-                teclado.next(); //
-            }
-
-
-        int barcos[] = new int [0];
-        if (numerobarcos>0 && numerobarcos<=10){
+        int[] tamanosBarcos = new int[0];
+        if (numeroBarcos > 0 && numeroBarcos <= 10){
             System.out.println("---------------------------------------------------");
             System.out.println("Introduce el tamaño para cada uno (Mín 2, Máx 5):");
-             barcos = new int [numerobarcos];
+            tamanosBarcos = new int[numeroBarcos];
 
-            for (int i = 0; i < numerobarcos; i++) {
-                System.out.print("Barco " + (i+1) + " :");
+            for (int i = 0; i < numeroBarcos; i++) {
+                System.out.print("Barco " + (i + 1) + " :");
                 if (teclado.hasNextInt()){
-                    barcos[i] = teclado.nextInt();
-                    if (barcos[i] < 2 || barcos[i] > 5){
+                    tamanosBarcos[i] = teclado.nextInt();
+                    if (tamanosBarcos[i] < 2 || tamanosBarcos[i] > 5){
                         System.out.println("Introdúcelo de nuevo, tamaño incorrecto...");
                         i--;
                         continue;
                     }
-                }else {
+                } else {
                     System.out.println("ERROR: Solo se admiten numeros...");
                     teclado.next();
                     i--;
@@ -55,42 +54,42 @@ public class Hundirlaflota {
                 }
             }
 
-        }else {
+        } else {
             System.out.println("ERROR: Cantidad de barcos incorrecta...");
         }
 
-        return barcos;
+        return tamanosBarcos;
     }
 
-    public static int [][] tablero(Scanner teclado) {
+
+    public static int[][] tablero(Scanner teclado) {
 
         System.out.println("----------------------------------------------------");
 
-        int dimensiones = 0;
+        int tamanoTablero = 0;
 
         do {
             System.out.print("Introduce las dimensiones del tablero máximo 128x128: ");
             if (teclado.hasNextInt()){
-                dimensiones = teclado.nextInt();
-
-            }else {
+                tamanoTablero = teclado.nextInt();
+            } else {
                 System.out.println("ERROR: No se admiten letras...");
                 teclado.next();
             }
 
-        } while (dimensiones < 1 || dimensiones > 128);
+        } while (tamanoTablero < 1 || tamanoTablero > 128);
 
-        int[][] tablero = new int[dimensiones][dimensiones];
+        int[][] tablero = new int[tamanoTablero][tamanoTablero];
 
         System.out.println("Rellena tu tablero:");
 
-        for (int i = 0; i < dimensiones; i++) {
-            for (int j = 0; j < dimensiones; j++) {
+        for (int i = 0; i < tamanoTablero; i++) {
+            for (int j = 0; j < tamanoTablero; j++) {
                 System.out.print("Valor en [" + i + "][" + j + "]: ");
-                String verificar01 = teclado.next();
+                String valor = teclado.next();
 
-                if (verificar01.equals("0") || verificar01.equals("1")) {
-                    tablero[i][j] = Integer.parseInt(verificar01);
+                if (valor.equals("0") || valor.equals("1")) {
+                    tablero[i][j] = Integer.parseInt(valor);
                 } else {
                     System.out.println("ERROR: Solo se permite 0 o 1.");
                     j--;
@@ -105,61 +104,91 @@ public class Hundirlaflota {
         return tablero;
     }
 
+
     public static void buscar_barcos(int[][] tablero) {
 
-        int num_barcos_horizontal = 0;
+        int tamano = tablero.length;
+        boolean[][] visitado = new boolean[tamano][tamano];
 
-        for (int i = 0; i < tablero.length; i++) {
-            int contador_unos = 0;
+        int barcosHorizontales = 0;
+        int barcosVerticales = 0;
 
-            for (int j = 0; j < tablero[i].length; j++) {
 
-                if (tablero[i][j] == 1) {
-                    contador_unos++;
+        for (int i = 0; i < tamano; i++) {
+            int contador = 0;
+            for (int j = 0; j < tamano; j++) {
+                if (tablero[i][j] == 1 && !visitado[i][j]) {
+                    contador++;
                 } else {
-
-                    if (contador_unos >= 2) {
-                        num_barcos_horizontal++;
-                        System.out.println("Barco horizontal encontrado en fila " + i + " de tamaño " + contador_unos);
+                    if (contador >= 2) {
+                        barcosHorizontales++;
+                        int inicioBarco = j - contador;
+                        for (int pos = inicioBarco; pos < j; pos++) {
+                            visitado[i][pos] = true;
+                        }
+                        System.out.println("Barco horizontal encontrado en fila " + i + " de tamaño " + contador);
                     }
-                    contador_unos = 0;
+                    contador = 0;
                 }
             }
 
-            if (contador_unos >= 2) {
-                num_barcos_horizontal++;
-                System.out.println("Barco horizontal encontrado en fila " + i + " de tamaño " + contador_unos);
+            if (contador >= 2) {
+                barcosHorizontales++;
+                int inicioBarco = tamano - contador;
+                for (int pos = inicioBarco; pos < tamano; pos++) {
+                    visitado[i][pos] = true;
+                }
+                System.out.println("Barco horizontal encontrado en fila " + i + " de tamaño " + contador);
             }
         }
 
-        int num_barcos_vertical = 0;
 
-        for (int j = 0; j < tablero.length; j++) {
-            int contador_unos = 0;
-
-            for (int i = 0; i < tablero.length; i++) {
-
-                if (tablero[i][j] == 1) {
-                    contador_unos++;
+        for (int j = 0; j < tamano; j++) {
+            int contador = 0;
+            for (int i = 0; i < tamano; i++) {
+                if (tablero[i][j] == 1 && !visitado[i][j]) {
+                    contador++;
                 } else {
-                    if (contador_unos >= 2) {
-                        num_barcos_vertical++;
-                        System.out.println("Barco vertical en columna " + j + " de tamaño " + contador_unos);
+                    if (contador >= 2) {
+                        barcosVerticales++;
+                        int inicioBarco = i - contador;
+                        for (int pos = inicioBarco; pos < i; pos++) {
+                            visitado[pos][j] = true;
+                        }
+                        System.out.println("Barco vertical encontrado en columna " + j + " de tamaño " + contador);
                     }
-                    contador_unos = 0;
+                    contador = 0;
                 }
             }
 
-            if (contador_unos >= 2) {
-                num_barcos_vertical++;
-                System.out.println("Barco vertical en columna " + j + " de tamaño " + contador_unos);
+            if (contador >= 2) {
+                barcosVerticales++;
+                int inicioBarco = tamano - contador;
+                for (int pos = inicioBarco; pos < tamano; pos++) {
+                    visitado[pos][j] = true;
+                }
+                System.out.println("Barco vertical encontrado en columna " + j + " de tamaño " + contador);
             }
         }
-        int total_barcos = num_barcos_horizontal + num_barcos_vertical;
+
+
+        int barcosTamaño1 = 0;
+        for (int i = 0; i < tamano; i++) {
+            for (int j = 0; j < tamano; j++) {
+                if (tablero[i][j] == 1 && !visitado[i][j]) {
+                    barcosTamaño1++;
+                    System.out.println("Barco de tamaño 1 encontrado en [" + i + "][" + j + "]");
+                    visitado[i][j] = true;
+                }
+            }
+        }
+
+        int total = barcosHorizontales + barcosVerticales + barcosTamaño1;
 
         System.out.println("--------------------------------");
-        System.out.println("Barcos horizontales: " + num_barcos_horizontal);
-        System.out.println("Barcos verticales: " + num_barcos_vertical);
-        System.out.println("TOTAL BARCOS: " + total_barcos);
+        System.out.println("Barcos horizontales: " + barcosHorizontales);
+        System.out.println("Barcos verticales: " + barcosVerticales);
+        System.out.println("Barcos de tamaño 1: " + barcosTamaño1);
+        System.out.println("TOTAL BARCOS: " + total);
     }
 }
