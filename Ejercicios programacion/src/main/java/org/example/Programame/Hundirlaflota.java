@@ -110,25 +110,25 @@ public class Hundirlaflota {
         int num_barcos_horizontal = 0;
 
         for (int i = 0; i < tablero.length; i++) {
-            int contador_unos = 0;
+            int contador_barcos = 0;
 
             for (int j = 0; j < tablero[i].length; j++) {
 
-                if (tablero[i][j] == 1) {
-                    contador_unos++;
+                if (tablero[i][j] == 1 && tablero[i+1][j+1]==1){
+                    contador_barcos++;
                 } else {
 
-                    if (contador_unos >= 2) {
+                    if (contador_barcos >= 2) {
                         num_barcos_horizontal++;
-                        System.out.println("Barco horizontal encontrado en fila " + i + " de tamaño " + contador_unos);
+                        System.out.println("Barco horizontal encontrado en fila " + i + " de tamaño " + contador_barcos);
                     }
-                    contador_unos = 0;
+                    contador_barcos = 0;
                 }
             }
 
-            if (contador_unos >= 2) {
+            if (contador_barcos >= 2) {
                 num_barcos_horizontal++;
-                System.out.println("Barco horizontal encontrado en fila " + i + " de tamaño " + contador_unos);
+                System.out.println("Barco horizontal encontrado en fila " + i + " de tamaño " + contador_barcos);
             }
         }
 
