@@ -38,34 +38,50 @@ public class Hundirlaflota {
         }
 
         int[] tamanosBarcos = new int[0];
-        if (numeroBarcos > 0 && numeroBarcos <= 10){
-            System.out.println("---------------------------------------------------");
-            System.out.println("Introduce el tamaño para cada uno (Mín 2, Máx 5):");
-            tamanosBarcos = new int[numeroBarcos];
+        boolean repetir;
 
-            for (int i = 0; i < numeroBarcos; i++) {
-                System.out.print("Barco " + (i + 1) + " :");
-                if (teclado.hasNextInt()){
-                    tamanosBarcos[i] = teclado.nextInt();
-                    if (tamanosBarcos[i] < 2 || tamanosBarcos[i] > 5){
-                        System.out.println("Introdúcelo de nuevo, tamaño incorrecto...");
-                        i--;
-                        continue;
+        do {
+            System.out.print("Cuantos barcos vas a querer en tu flota? (Máximo 10): ");
+            if (teclado.hasNextInt()) {
+                numeroBarcos = teclado.nextInt();
+
+                if (numeroBarcos > 0 && numeroBarcos <= 10) {
+                    System.out.println("---------------------------------------------------");
+                    System.out.println("Introduce el tamaño para cada uno (Mín 2, Máx 5):");
+                    tamanosBarcos = new int[numeroBarcos];
+
+                    for (int i = 0; i < numeroBarcos; i++) {
+                        System.out.print("Barco " + (i + 1) + " :");
+                        if (teclado.hasNextInt()) {
+                            tamanosBarcos[i] = teclado.nextInt();
+                            if (tamanosBarcos[i] < 2 || tamanosBarcos[i] > 5) {
+                                System.out.println("Introdúcelo de nuevo, tamaño incorrecto...");
+                                i--;
+                            }
+                        } else {
+                            System.out.println("ERROR: Solo se admiten numeros...");
+                            teclado.next();
+                            i--;
+                        }
                     }
+                    repetir = false;
+
                 } else {
-                    System.out.println("ERROR: Solo se admiten numeros...");
-                    teclado.next();
-                    i--;
-                    continue;
+                    System.out.println("ERROR: Cantidad de barcos incorrecta...");
+                    repetir = true;
                 }
+
+            } else {
+                System.out.println("ERROR: No se admiten letras");
+                teclado.next();
+                repetir = true;
             }
 
-        } else {
-            System.out.println("ERROR: Cantidad de barcos incorrecta...");
-        }
+        } while (repetir);
 
         return tamanosBarcos;
     }
+
     /**
      * Author Ivan
      * Version 1.0
