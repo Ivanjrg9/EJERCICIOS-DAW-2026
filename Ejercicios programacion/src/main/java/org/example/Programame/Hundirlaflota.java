@@ -18,6 +18,13 @@ public class Hundirlaflota {
         teclado.close();
     }
 
+    /**
+     * Author Ivan
+     * Version 1.0
+     * Aqui se piden los barcos
+     * @param teclado
+     * @return
+     */
     public static int[] barcos(Scanner teclado){
 
         int numeroBarcos = 0;
@@ -59,7 +66,13 @@ public class Hundirlaflota {
 
         return tamanosBarcos;
     }
-
+    /**
+     * Author Ivan
+     * Version 1.0
+     * Aqui se define el tablero
+     * @param teclado
+     * @return
+     */
     public static int[][] tablero(Scanner teclado) {
 
         System.out.println("----------------------------------------------------");
@@ -101,19 +114,24 @@ public class Hundirlaflota {
         }
         return tablero;
     }
-
+    /**
+     * Author Ivan
+     * Version 1.0
+     * Aqui se compara y se cuentan los barcos en el tablero y te lo printea por pantalla
+     */
     public static void buscar_barcos(int[][] tablero) {
 
         int tamano = tablero.length;
         boolean[][] visitado = new boolean[tamano][tamano];
 
-<<<<<<< HEAD
+        int num_barcos_horizontal = 0;
+
         for (int i = 0; i < tablero.length; i++) {
             int contador_barcos = 0;
 
             for (int j = 0; j < tablero[i].length; j++) {
 
-                if (tablero[i][j] == 1 && tablero[i+1][j+1]==1){
+                if (tablero[i][j] == 1 && tablero[i + 1][j + 1] == 1){
                     contador_barcos++;
                 } else {
 
@@ -128,7 +146,9 @@ public class Hundirlaflota {
             if (contador_barcos >= 2) {
                 num_barcos_horizontal++;
                 System.out.println("Barco horizontal encontrado en fila " + i + " de tamaño " + contador_barcos);
-=======
+            }
+        }
+
         int barcosHorizontales = 0;
         int barcosVerticales = 0;
 
@@ -157,7 +177,6 @@ public class Hundirlaflota {
                     visitado[i][pos] = true;
                 }
                 System.out.println("Barco horizontal encontrado en fila " + i + " de tamaño " + contador);
->>>>>>> 5ba506f639dad54bb10ce996b3acb32b849cdc12
             }
         }
 
